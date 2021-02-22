@@ -45,7 +45,7 @@
         return {
           width: w,
           minWidth: w,
-          textAlign: this.labelAlign || this.form?.labelAlign || 'right'
+          textAlign: this.labelAlign || this.form?.labelAlign || 'left'
         }
       }
     }

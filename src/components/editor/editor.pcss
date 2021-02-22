@@ -1,7 +1,7 @@
 .mu-editor {
   position: relative;
   display: inline-block;
-  width: 200px;
+  width: 100%;
   height: $inputElementHeight;
 
   & > .mu-input {
@@ -12,7 +12,7 @@
     transition: padding ease-in-out .1s;
   }
 
-  &:hover > .mu-input {
+  &:active > .mu-input {
     border-color: var(--mu-primary-color);
   }
 
@@ -31,7 +31,7 @@
     &[clickable] {
       cursor: pointer;
 
-      &:hover {
+      &:active {
         color: var(--mu-primary-color);
       }
     }
@@ -42,7 +42,7 @@
     color: $normalWeakTextColor;
     right: calc($inputElementHeight / 2 - 7px);
 
-    &.mu-icon:hover {
+    &.mu-icon:active {
       color: $normalSubtitleTextColor;
     }
   }
@@ -80,18 +80,18 @@
     }
   }
 
-  &:hover > .mu-editor_eraser {
+  &:active > .mu-editor_eraser {
     display: inline-flex;
   }
 
   &[clearable] {
-    &[icon-align]:hover > input {
+    &[icon-align]:active > input {
       padding-right: calc($inputElementHeight / 2 + 37px);
     }
     
     &,
     &[icon-align=left] {
-      &:hover > input {
+      &:active > input {
         padding-right: calc($inputElementHeight - 2px);
       }
     }
@@ -127,7 +127,7 @@
   & > .mu-input {
     border-color: var(--mu-danger-color);
   }
-  & > [clickable]:hover {
+  & > [clickable]:active {
     color: var(--mu-danger-color);
   }
 }

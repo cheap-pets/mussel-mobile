@@ -13,21 +13,60 @@
   <title>Gesture Example</title>
 </head>
 
-<body>
+<body class="mu-background-grey">
   <div id="app">
-    <mu-form class="mu-card">
+    <mu-form class="mu-card" border margin="double" label-width="50px">
       <mu-form-row>
-        <mu-form-field label="Field1 Label">
+        <mu-form-field label="Field1">
           <mu-input></mu-input>
         </mu-form-field>
-        <mu-form-field label="Field2 Label">
+        <mu-form-field label="Field2">
           <mu-input></mu-input>
         </mu-form-field>
       </mu-form-row>
-      <mu-form-field label="Field3 Label">
+      <div class="mu-divider" dashed></div>
+      <mu-form-field label="Field3">
         <mu-input></mu-input>
       </mu-form-field>
     </mu-form>
+    <mu-bar>
+      <label>
+        <mu-icon icon="menu"></mu-icon>
+        Menu
+      </label>
+      <mu-combo-box shape="round" placeholder="choose ...">
+        <mu-option value="blue"></mu-option>
+        <mu-option value="green"></mu-option>
+        <mu-option value="red"></mu-option>
+        <mu-option></mu-option>
+      </mu-combo-box>
+      <mu-dropdown-button caption="Choose Status" button-shape="round">
+        <template #dropdown>
+          <mu-dropdown-item>one</mu-dropdown-item>
+          <mu-dropdown-item>two</mu-dropdown-item>
+          <mu-list-divider></mu-list-divider>
+          <mu-dropdown-item>three</mu-dropdown-item>
+        </template>
+      </mu-dropdown-button>
+    </mu-bar>
+    <mu-bar margin="top double" justify-content="center">
+      <mu-button-group button-shape="round">
+        <mu-button active>Button One</mu-button>
+        <mu-button>Button Two</mu-button>
+        <mu-button>Button Three</mu-button>
+      </mu-button-group>
+    </mu-bar>
+    <mu-bar class="mu-tab-bar" margin="top double" shadow>
+      <mu-button button-style="link" icon-orient="vertical" icon="ok">Button Left</mu-button>
+      <mu-icon-button
+        class="mu-bar_float-button"
+        button-shape="round"
+        button-type="primary"
+        icon="search"
+        shadow>
+      </mu-icon-button>
+      <mu-button button-style="link" icon-orient="vertical" icon="x">Button Right</mu-button>
+    </mu-bar>
   </div>
 
   <script type="text/javascript">

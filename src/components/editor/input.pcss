@@ -1,7 +1,7 @@
 .mu-input {
   position: relative;
   z-index: 1;
-  width: 200px;
+  width: 100%;
   padding: 0 $inputElementPaddingX;
   outline: none;
   border: 1px solid $normalBorderColor;
@@ -25,7 +25,7 @@
     text-align: left !important;
     box-shadow: $inputFocusShadow var(--mu-primary-shadow-color);
   }
-  &:hover {
+  &:active {
     border-color: var(--mu-primary-minus-color);
   }
   &[readonly] {
@@ -52,7 +52,7 @@
     border-color: var(--mu-danger-plus-color);
     box-shadow: $inputFocusShadow var(--mu-danger-shadow-color);
   }
-  &:hover {
+  &:active {
     border-color: var(--mu-danger-minus-color);
   }
 }
@@ -70,4 +70,9 @@ textarea.mu-input {
 .mu-input[input-shape="round"],
 [input-shape="round"] > .mu-input {
   border-radius: $inputElementRoundRadius;
+}
+
+.mu-input[shape="round"],
+.mu-editor[shape=round] > .mu-input {
+  border-radius: $inputElementHeight;
 }

@@ -1,0 +1,54 @@
+[class^="mu-"] {
+  &[margin~="all"] {
+    margin: $halfSpacingSize;
+
+    &[margin~="double"] {
+      margin: $unitSpacingSize;
+    }
+  }
+
+  &[margin~="top"] {
+    margin-top: $halfSpacingSize;
+
+    &[margin~="double"] {
+      margin-top: $unitSpacingSize;
+    }
+  }
+
+  &[margin~="left"] {
+    margin-left: $halfSpacingSize;
+
+    &[margin~="double"] {
+      margin-left: $unitSpacingSize;
+    }
+  }
+
+  &[margin~="right"] {
+    margin-right: $halfSpacingSize;
+
+    &[margin~="double"] {
+      margin-right: $unitSpacingSize;
+    }
+  }
+
+  &[margin~="bottom"] {
+    margin-bottom: $halfSpacingSize;
+
+    &[margin~="double"] {
+      margin-bottom: $unitSpacingSize;
+    }
+  }
+
+  &[margin~="none"] {
+    margin: 0 !important;
+  }
+}
+
+.mu-margin:not([margin]),
+[class^="mu-"][margin=""] {
+  margin: $halfSpacingSize;
+}
+
+[class^="mu-"][margin="double"] {
+  margin: $unitSpacingSize;
+}

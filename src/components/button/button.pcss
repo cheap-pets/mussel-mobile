@@ -16,7 +16,6 @@ h1 {
   white-space: nowrap;
   text-overflow: ellipsis;
   background: $normalBackground;
-  /* vertical-align: middle; */
   font-size: $buttonFontSize;
   text-decoration: none;
   text-align: center;
@@ -24,16 +23,13 @@ h1 {
   cursor: pointer;
   box-shadow: $buttonShadow $normalGreyBackground;
 
-  /* & > .mu-icon {
-    line-height: 0;
+  &[icon-orient="vertical"] > .mu-icon {
+    display: block;
   }
 
-  &::before {
+  &[icon-orient="horizontal"] > .mu-icon {
     display: inline-block;
-    float: left;
-    width: 0;
-    content: '\00a0';
-  } */
+  }
 
   &[button-style="link"] {
     padding-left: 0;
@@ -48,8 +44,8 @@ h1 {
     color: var(--mu-primary-plus-color);
   }
 
-  &:hover,
-  &[button-style="text"]:hover {
+  &:active,
+  &[button-style="text"]:active {
     border-color: var(--mu-primary-minus-color);
     color: var(--mu-primary-minus-color);
     box-shadow: $buttonHoverShadow var(--mu-primary-shadow-color);
@@ -74,7 +70,7 @@ h1 {
       box-shadow: $buttonActiveShadow var(--mu-primary-shadow-color);
     }
 
-    &:hover {
+    &:active {
       background: var(--mu-primary-minus-color);
       border-color: var(--mu-primary-minus-color);
       box-shadow: $buttonHoverShadow var(--mu-primary-shadow-color);
@@ -91,7 +87,7 @@ h1 {
         background: var(--mu-primary-tiny-color);
       }
 
-      &:hover {
+      &:active {
         color: var(--mu-primary-minus-color);
       }
     }
@@ -116,7 +112,7 @@ h1 {
       box-shadow: $buttonActiveShadow var(--mu-success-shadow-color);
     }
 
-    &:hover {
+    &:active {
       background: var(--mu-success-minus-color);
       border-color: var(--mu-success-minus-color);
       box-shadow: $buttonHoverShadow var(--mu-success-shadow-color);
@@ -133,7 +129,7 @@ h1 {
         background: var(--mu-success-tiny-color);
       }
 
-      &:hover {
+      &:active {
         color: var(--mu-success-minus-color);
       }
     }
@@ -158,7 +154,7 @@ h1 {
       box-shadow: $buttonActiveShadow var(--mu-danger-shadow-color);
     }
 
-    &:hover {
+    &:active {
       background: var(--mu-danger-minus-color);
       border-color: var(--mu-danger-minus-color);
       box-shadow: $buttonHoverShadow var(--mu-danger-shadow-color);
@@ -175,7 +171,7 @@ h1 {
         background: var(--mu-danger-tiny-color);
       }
 
-      &:hover {
+      &:active {
         color: var(--mu-danger-minus-color);
       }
     }
@@ -196,7 +192,7 @@ h1 {
     background: transparent;
 
     &[active],
-    &:hover {
+    &:active {
       background: transparent;
     }
   }
@@ -223,6 +219,13 @@ h1 {
   & > span + .mu-icon {
     margin-left: 4px;
   }
+
+  &[icon-orient="vertical"] {
+    & > .mu-icon + span,
+    & > span + .mu-icon {
+      margin-left: 0;
+    }
+  }
 }
 
 [button-shape="round"],
@@ -237,7 +240,7 @@ h1 {
   user-select: none;
   cursor: pointer;
 
-  &:hover {
+  &:active {
     color: var(--mu-primary-color);
     background: $normalTinyBackground;
   }
@@ -250,7 +253,7 @@ h1 {
 [dark-mode] .mu-button-like {
   color: rgba(255, 255, 255, .8);
 
-  &:hover {
+  &:active {
     color: var(--mu-primary-color);
     background: $normalTinyBackground;
   }

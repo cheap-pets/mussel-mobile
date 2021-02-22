@@ -1,4 +1,4 @@
-.mu-bordered, [class^="mu-"] {
+[class^="mu-"] {
   &[border] {
     border: 0 solid $normalBorderColor;
   }
@@ -51,6 +51,10 @@
     border-color: var(--mu-danger-color);
   }
 
+  &[border~="light"] {
+    border-color: $normalDividerColor;
+  }
+
   &[border~="dashed"] {
     border-style: dashed;
   }
@@ -68,4 +72,23 @@
 [class^="mu-"][border=""],
 [class^="mu-"][bordered] {
   border: 1px solid $normalBorderColor;
+}
+
+.mu-divider {
+  display: block;
+  width: 100%;
+
+  &::before {
+    content: '';
+    display: block;
+    border-top: 1px solid $normalDividerColor;
+  }
+
+  &[dashed]::before {
+    border-top-style: dashed;
+  }
+
+  &[dotted]::before {
+    border-top-style: dotted;
+  }
 }

@@ -1,21 +1,55 @@
-.mu-bar {
+.mu-bar,
+.mu-tab-bar {
+  position: relative;
+  align-items: center;
+  height: $normalBarHeight;
+  padding: 0 $halfSpacingSize;
+  background: $normalBackground;
+
   & > * {
     margin-right: $halfSpacingSize;
-
-    &:last-child {
-      margin-right: 0;
+    
+    &:first-child {
+      margin-left: 8px;
     }
   }
 
-  &.mu-toolbar {
-    height: $normalBarHeight; 
-    padding: 0 10px;
-
-    & > span,
-    & > label {
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-    }
+  & > label {
+    white-space: nowrap;
   }
+}
+
+.mu-tab-bar {
+  padding: 0;
+
+  & > * {
+    flex: 1 1 1px;
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  & > .mu-button {
+    width: 100%;
+    border-radius: 0;
+  }
+
+  & > :first-child {
+    margin-left: 0;
+  }
+
+  & > .mu-button > .mu-icon {
+    font-size: 1.33rem;
+  }
+}
+
+.mu-button.mu-bar_float-button {
+  position: relative;
+  flex: none;
+  width: $normalBarHeight;
+  height: $normalBarHeight;
+  border-radius: $normalBarHeight;
+  transform: translateY(-8px);
 }

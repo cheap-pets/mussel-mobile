@@ -46,7 +46,7 @@ export default {
 
   /* line color */
   normalBorderColor: '#d6d6d6',
-  normalDividerColor: '#e0e0e0',
+  normalDividerColor: '#e5e5e5',
 
   /* background */
   normalBackground: '#fff',
@@ -58,18 +58,18 @@ export default {
   normalTinyBackground: 'rgba(0, 0, 0, .02)',
 
   /* element size */
-  normalBarHeight: '40px',
+  normalBarHeight: '44px',
   compactBarHeight: '32px',
   normalLineHeight: '20px',
   normalIconWidth: '20px',
 
   /* shadow */
-  boxShadowLevel1: '0 1.5px 3px rgba(0, 0, 0, 0.25), 0 1.5px 6px rgba(0, 0, 0, 0.12)',
+  boxShadowLevel1: '0 0.5px 3px rgba(0, 0, 0, 0.25), 0 0.5px 6px rgba(0, 0, 0, 0.12)',
   boxShadowLevel2: '0 3px 6px rgba(0, 0, 0, 0.25), 0 3px 12px rgba(0, 0, 0, 0.15)',
   boxShadowLevel3: '0 6px 12px rgba(0, 0, 0, 0.25), 0 6px 24px rgba(0, 0, 0, 0.18)',
 
   /* input & button */
-  inputElementHeight: '32px',
+  inputElementHeight: '28px',
   inputElementPaddingX: '10px',
   inputElementPadding: '5px 10px',
   inputElementRoundRadius: '16px',
@@ -110,7 +110,7 @@ export default {
   /* card */
   cardBorder: '0',
   cardBorderRadius: '8px',
-  cardShadow: '$boxShadowLevel1',
+  cardShadow: 'none',
 
   /* mask */
   maskBackground: 'rgba(0, 0, 0, .5)',
@@ -140,6 +140,5 @@ export default {
   tabCardBackground: '$normalGreyBackground',
 
   /* menu */
-  menuItemHeight: '32px',
-  sidebarMenuItemHeight: '40px'
+  menuItemHeight: '32px'
 }

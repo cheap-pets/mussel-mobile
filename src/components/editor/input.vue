@@ -42,7 +42,10 @@
         else if (event.keyCode === 27) this.$emit('esckey', this)
       },
       onTap (event) {
-        if (!this.disabled) this.$emit('click', event)
+        if (!this.disabled) {
+          this.$emit('tap', event)
+          this.$emit('click', event)
+        }
       },
       onFocus () {
         this.$emit('focus', this)

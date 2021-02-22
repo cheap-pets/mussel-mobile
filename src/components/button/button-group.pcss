@@ -1,6 +1,7 @@
 .mu-button-group {
   position: relative;
-  display: inline-block;
+  display: inline-flex;
+  height: $inputElementHeight;
   vertical-align: top;
   border-radius: $inputElementBorderRadius;
   box-shadow: $buttonShadow $normalGreyBackground;
@@ -16,10 +17,11 @@
   }
 
   & > .mu-button {
-    float: left;
+    height: 100%;
+    flex: 1 1 auto;
     box-shadow: none;
 
-    &:hover,
+    &:active,
     &[active] {
       z-index : 1;
     }
@@ -31,7 +33,7 @@
       &[button-type="primary"],
       &[button-type="submit"],
       &[button-type="danger"] {
-        &:not(:hover):not([active]) {
+        &:not(:active):not([active]) {
           border-left-color: $buttonDividerColor;
         }
       }

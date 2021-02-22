@@ -1,13 +1,13 @@
 <template>
   <div
-    class="mu-dropdown"
+    class="mu-dropdown mu-flex-box"
+    inline
     :expanded="popupParams.visible"
-    @tap="onTap"
-    @mouseover="onMouseOver"
-    @mouseleave="onMouseLeave">
+    @tap="onTap">
     <div
       v-if="splitButton"
       class="mu-button-group"
+      size="auto"
       :button-shape="buttonShape">
       <mu-button
         v-bind="buttonParams"
@@ -23,6 +23,7 @@
       v-else
       v-bind="buttonParams"
       :button-shape="buttonShape"
+      size="auto"
       @tap="onButtonTap">
       <slot>
         <span>{{ caption }}</span>
@@ -33,9 +34,7 @@
       v-show="!disabled"
       v-bind="popupParams"
       @change="setPopupVisible"
-      @mouseover.native.stop="clearHoverTimer"
-      @mouseleave.native.stop="onMouseLeave"
-      @tap.native.stop="onDropdownClick">
+      @tap.native.stop>
       <slot name="dropdown" />
     </mu-dropdown-panel>
   </div>
@@ -57,6 +56,12 @@
     mixins: [SplitButton],
     props: {
       splitButton: Boolean
+    },
+    methods: {
+      onButtonTap (event) {
+        if (!this.splitButton) this.onTap(event)
+        this.$emit('tap', event)
+      }
     }
   }
 </script>
