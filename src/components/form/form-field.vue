@@ -1,0 +1,53 @@
+<template>
+  <div class="mu-form-field mu-flex-box" :cellpadding="cellpadding">
+    <label v-if="label" class="mu-text-ellipsis" :style="labelStyle">
+      {{ label }}
+    </label>
+    <slot>
+      <span v-if="value || value === 0">{{ value }}</span>
+    </slot>
+  </div>
+</template>
+
+<script>
+  import './form.pcss'
+
+  import FlexItem from '../layout/flex-item.vue'
+
+  export default {
+    name: 'MusselFormField',
+    extends: FlexItem,
+    inject: {
+      form: {
+        default: null
+      }
+    },
+    props: {
+      label: String,
+      labelWidth: String,
+      labelAlign: {
+        type: String,
+        validator (value) {
+          return ['right', 'left'].indexOf(value) !== -1
+        }
+      },
+      cellpadding: {
+        type: Boolean,
+        default () {
+          return this.form?.formStyle !== 'table'
+        }
+      },
+      value: null
+    },
+    computed: {
+      labelStyle () {
+        const w = this.labelWidth || this.form?.labelWidth
+        return {
+          width: w,
+          minWidth: w,
+          textAlign: this.labelAlign || this.form?.labelAlign || 'right'
+        }
+      }
+    }
+  }
+</script>

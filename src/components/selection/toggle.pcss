@@ -1,0 +1,58 @@
+.mu-toggle {
+  display: inline-flex;
+  align-items: center;
+  height: $inputElementHeight;
+  vertical-align: middle;
+
+  & > * {
+    cursor: pointer;
+  }
+
+  & > .mu-toggle-slide-bar {
+    position: relative;
+    width: $toggleButtonWidth;
+    height: 20px;
+    border-radius: 10px;
+    background-color: $normalDarkGreyBackground;
+    transition: background 0.2s ease-in-out;
+
+    &:after {
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      bottom: 3px;
+      display: inline-block;
+      width: 14px;
+      background-color: #fff;
+      border-radius: 7px;
+      content: '';
+      transition: all 0.2s ease-in-out;
+    }
+  }
+
+  &[active] > .mu-toggle-slide-bar {
+    background-color: var(--mu-success-color);
+    &:after {
+      left: 100%;
+      transform: translateX(-17px);
+    }
+  }
+
+  & > * + * {
+    margin-left: 5px;
+  }
+
+  &[disabled] {
+    & > * {
+      color: $normalDisabledTextColor;
+      cursor: default;
+    }
+    & > .mu-toggle-slide-bar {
+      background-color: $normalDisabledBackground;
+
+      &:after {
+        background-color: $normalDisabledTextColor;
+      }
+    }
+  }
+}

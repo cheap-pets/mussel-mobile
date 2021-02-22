@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta
+    name="viewport"
+    content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui"
+  >
+  <script type="text/javascript" src="../node_modules/vue/dist/vue.js"></script>
+  <script type="text/javascript" src="../dist/mussel.js"></script>
+
+  <title>Gesture Example</title>
+</head>
+
+<body>
+  <div id="app">
+    <mu-form class="mu-card">
+      <mu-form-row>
+        <mu-form-field label="Field1 Label">
+          <mu-input></mu-input>
+        </mu-form-field>
+        <mu-form-field label="Field2 Label">
+          <mu-input></mu-input>
+        </mu-form-field>
+      </mu-form-row>
+      <mu-form-field label="Field3 Label">
+        <mu-input></mu-input>
+      </mu-form-field>
+    </mu-form>
+  </div>
+
+  <script type="text/javascript">
+    const view = new Vue({
+      el: '#app',
+      methods: {
+
+      }
+    })
+  </script>
+</body>
