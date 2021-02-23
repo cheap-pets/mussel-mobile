@@ -36,14 +36,8 @@
       fields: Object,
       options: Array,
       multiple: Boolean,
-      popupMaxHeight: {
-        type: String,
-        default: '300px'
-      },
-      popupStyle: {
-        type: String,
-        default: 'dropdown-list'
-      }
+      popupClass: { type: null, default: 'mu-dropdown-list' },
+      popupMaxHeight: { type: String, default: '300px' }
     },
     data () {
       return {

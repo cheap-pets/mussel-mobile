@@ -15,14 +15,13 @@
       <h-box
         class="mu-dialog-header"
         align-items="center">
-        <mu-flex-item class="mu-dialog-title mu-text-ellipsis" size="auto">
+        <div
+          v-if="params.title"
+          class="mu-dialog-title mu-text-ellipsis"
+          size="auto">
           {{ params.title }}
-        </mu-flex-item>
+        </div>
         <slot name="header" />
-        <icon
-          class="mu-dialog_close-btn"
-          icon="x"
-          @tap="onCloseButtonTap" />
       </h-box>
       <flex-item
         class="mu-dialog-body"
@@ -48,7 +47,6 @@
 <script>
   import './dialog.pcss'
 
-  import Icon from '../icon/icon.vue'
   import HBox from '../layout/flex-h-box'
   import VBox from '../layout/flex-v-box'
   import Button from '../button/button.jsx'
@@ -57,7 +55,6 @@
   export default {
     name: 'MusselDialogWrapper',
     components: {
-      Icon,
       HBox,
       VBox,
       FlexItem,
@@ -85,9 +82,6 @@
     methods: {
       onMaskClick (event) {
         this.dialog.onMaskClick(event)
-      },
-      onCloseButtonTap () {
-        this.dialog.tryHide('$closeButton')
       },
       onButtonTap (btn) {
         this.dialog.onButtonTap(btn)

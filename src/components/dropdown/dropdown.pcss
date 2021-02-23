@@ -19,7 +19,7 @@
     background: $normalBackground;
     visibility: hidden;
     border-radius: $dropdownBorderRadius;
-    box-shadow: $dropdownShadow;
+    overflow: auto;
     opacity: 0;
 
     &:empty {
@@ -32,11 +32,6 @@
 
     &[direction=down] {
       transform: translateY(-100%);
-    }
-
-    & > .mu-list-item {
-      padding: $dropdownItemPadding;
-      cursor: pointer;
     }
 
     & > .mu-footer-button {
@@ -54,7 +49,7 @@
     visibility: visible;
     transition-property: transform, opacity;
     transition-timing-function: ease-in;
-    transition-duration: .2s;
+    transition-duration: .15s;
   }
 
   &[slide=in] > .mu-dropdown-panel_wrapper {
@@ -65,20 +60,58 @@
   &[slide=out] .mu-list-item:active {
     background: inherit;
   }
+
+  &[popup-style="dropdown"] > .mu-dropdown-panel_wrapper {
+    box-shadow: $dropdownShadow;
+
+    & > .mu-list-item {
+      padding: $dropdownItemPadding;
+    }
+  }
+
+  &[popup-style="drawer"],
+  &[popup-style="window"] {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0;
+    background: $maskBackground;
+  }
+
+  &[popup-style="drawer"] {
+    & > .mu-dropdown-panel_wrapper {
+      position: absolute;
+      left: $unitSpacingSize;
+      right: $unitSpacingSize;
+      bottom: 0;
+      padding: $halfSpacingSize;
+      border-radius: 8px 8px 0 0;
+      box-shadow: $drawerShadow;
+    }
+  }
+
+  &[popup-style="window"] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & > .mu-dropdown-panel_wrapper {
+      position: relative;
+      flex-grow: 1;
+      margin: 0 32px;
+      padding: $halfSpacingSize;
+      border-radius: 8px;
+      box-shadow: $dialogShadow;
+    }
+  }
 }
 
 body > .mu-dropdown-panel {
   position: fixed;
 }
 
-[popup-style=dropdown-list],
-[popup-style=dropdown-menu] {
-  & > .mu-dropdown-panel_wrapper {
-    padding: $dropdownListPadding;
-  }
-}
-
-[popup-style=dropdown-menu] .mu-list-item:active {
-  color: $normalHighlightTextColor;
-  background: var(--mu-primary-color);
+.mu-dropdown-list > .mu-dropdown-panel_wrapper {
+  padding: $dropdownListPadding;
 }

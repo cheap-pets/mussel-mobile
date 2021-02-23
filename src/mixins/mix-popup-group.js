@@ -6,10 +6,10 @@ export default {
         width: this.popupWidth,
         height: this.popupHeight,
         maxHeight: this.popupMaxHeight,
+        popupClass: this.popupClass,
         popupStyle: this.popupStyle,
         iconIndent: this.popupIconIndent,
-        renderToBody: this.popupRenderToBody,
-        overflow: this.popupOverflow
+        renderToBody: this.popupRenderToBody
       }
     }
   },
@@ -19,14 +19,20 @@ export default {
     }
   },
   props: {
-    popupStyle: String,
+    popupClass: null,
+    popupHeight: String,
+    popupMaxHeight: String,
+    popupStyle: {
+      type: String,
+      default: 'dropdown',
+      validator (v) {
+        return ['dropdown', 'drawer', 'window'].indexOf(v) !== -1
+      }
+    },
     popupWidth: {
       type: String,
       default: 'auto'
     },
-    popupHeight: String,
-    popupMaxHeight: String,
-    popupOverflow: String,
     popupIconIndent: null,
     popupRenderToBody: {
       type: Boolean,
@@ -34,6 +40,9 @@ export default {
     }
   },
   watch: {
+    popupClass (value) {
+      this.popupParams.popupClass = value
+    },
     popupWidth (value) {
       this.popupParams.width = value
     },
@@ -45,9 +54,6 @@ export default {
     },
     popupRenderToBody (value) {
       this.popupParams.renderToBody = value
-    },
-    popupOverflow (value) {
-      this.popupParams.overflow = value
     }
   },
   methods: {

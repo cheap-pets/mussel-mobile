@@ -35,7 +35,7 @@
       disabled: Boolean,
       popupStyle: {
         type: String,
-        default: 'dropdown-list'
+        default: 'dropdown'
       }
     },
     mounted () {

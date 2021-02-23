@@ -44,6 +44,10 @@
       width: 1px;
       text-align: center;
     }
+
+    & .mu-week-cell + .mu-week-cell {
+      border-left: 1px solid $normalDividerColor;
+    }
   }
 
   & > .mu-calendar-grid {
@@ -57,9 +61,9 @@
       height: 1px;
       flex-grow: 1;
 
-      /* & + .mu-calendar-row {
-        border-top: 1px solid $normalDividerColor;
-      } */
+      & + .mu-calendar-row {
+        border-top: 1px dashed $normalDividerColor;
+      }
     }
     & .mu-calendar-cell {
       position: relative;
@@ -69,9 +73,9 @@
       width: 1px;
       cursor: pointer;
 
-      /* & + .mu-calendar-cell {
-        border-left: 1px solid $normalDividerColor;
-      } */
+      & + .mu-calendar-cell {
+        border-left: 1px dashed $normalDividerColor;
+      }
 
       &[marked]:after {
         position: absolute;

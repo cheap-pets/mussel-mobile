@@ -26,7 +26,7 @@
       </mu-form-row>
       <div class="mu-divider" dashed></div>
       <mu-form-field label="Field3">
-        <mu-date-editor></mu-date-editor>
+        <mu-date-editor popup-style="drawer"></mu-date-editor>
       </mu-form-field>
     </mu-form>
     <mu-bar border>
@@ -39,7 +39,7 @@
         <mu-option value="green"></mu-option>
         <mu-option value="red"></mu-option>
       </mu-combo-box>
-      <mu-dropdown-button caption="Choose Status" button-shape="round">
+      <mu-dropdown-button caption="Choose Status" button-shape="round" popup-style="window">
         <template #dropdown>
           <mu-dropdown-item>one</mu-dropdown-item>
           <mu-dropdown-item>two</mu-dropdown-item>
@@ -99,6 +99,7 @@
         <mu-list-item icon="folder">Item Four</mu-list-item>
     </mu-drawer>
     <mu-expander class="mu-bordered" margin="top double" expanded title="click to expand">
+      <div class="mu-divider" dashed></div>
       <mu-list-item>Javascript</mu-list-item>
       <mu-list-item>Nginx & Lua</mu-list-item>
       <mu-list-item>Flutter & Dart</mu-list-item>

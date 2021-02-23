@@ -43,6 +43,7 @@
       popupStyle: String,
       editable: { type: Boolean, default: true },
       emitNullOnInput: { type: Boolean, default: true },
+      popupClass: { type: null, default: 'mu-dropdown-list' },
       popupMaxHeight: { type: String, default: '300px' }
     },
     data () {
@@ -52,8 +53,7 @@
     },
     computed: {
       isDropdownStyle () {
-        return this.valueMode === 'select' ||
-          this.popupStyle === 'dropdown-list'
+        return this.valueMode === 'select' || this.popupStyle === 'dropdown'
       }
     },
     watch: {
@@ -66,9 +66,7 @@
     },
     created () {
       this.params.editable = true
-      this.popupParams.popupStyle = this.isDropdownStyle
-        ? 'dropdown-list'
-        : 'none'
+      this.popupParams.popupStyle = this.isDropdownStyle ? 'dropdown' : 'none'
 
       if (
         !this.icon &&

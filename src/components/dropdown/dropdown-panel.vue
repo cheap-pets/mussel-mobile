@@ -3,15 +3,18 @@
     v-if="rendered"
     v-show="popupVisible"
     class="mu-dropdown-panel"
+    :class="popupClass"
     :popup-style="popupStyle"
     :slide="slide"
     :style="rect"
+    @tap.stop="hide"
     @touchstart.stop>
     <div
       ref="wrapper"
       class="mu-dropdown-panel_wrapper"
       :direction="direction"
-      :style="wrapperStyle">
+      :style="wrapperStyle"
+      @tap.stop>
       <slot />
     </div>
   </div>
@@ -76,6 +79,7 @@
       height: String,
       minWidth: String,
       maxHeight: String,
+      popupClass: null,
       popupStyle: String,
       overflow: {
         type: String,
@@ -149,7 +153,7 @@
           window.__mussel_dropdown = null
         }
       },
-      setPosition () {
+      setDropdownPosition () {
         const el = this.$refs.wrapper
         const pRect = getClientRect(this.$parent.$el)
 
@@ -192,6 +196,19 @@
           .then(() => {
             this.slide = 'in'
           })
+      },
+      setPosition () {
+        if (this.popupStyle === 'dropdown') this.setDropdownPosition()
+        else {
+          this.wrapperStyle = {
+            maxHeight: this.maxHeight,
+            height: this.height
+          }
+          this.direction = 'up'
+          delay().then(() => {
+            this.slide = 'in'
+          })
+        }
       }
     }
   }

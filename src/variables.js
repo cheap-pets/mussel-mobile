@@ -59,7 +59,7 @@ export default {
 
   /* element size */
   normalBarHeight: '48px',
-  compactBarHeight: '32px',
+  compactBarHeight: '36px',
   normalLineHeight: '20px',
   normalIconWidth: '20px',
 
