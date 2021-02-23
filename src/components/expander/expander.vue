@@ -62,7 +62,10 @@
       },
       onTap (event) {
         if (this.disabled) return
-        if (!this.triggerElements.length || this.findTrigger(event.target)) {
+        if (
+          !this.triggerElements.length ||
+          this.findTrigger(event.gestureState.target)
+        ) {
           this.toggleExpand()
         }
       },

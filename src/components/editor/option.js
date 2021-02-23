@@ -82,6 +82,7 @@ export default {
         this.option,
         this.fields
       )
+      this.$emit('tap')
       this.$emit('click')
     }
   }

@@ -1,5 +1,5 @@
 <template>
-  <div class="mu-button-group">
+  <div class="mu-button-group mu-flex-box">
     <slot />
   </div>
 </template>

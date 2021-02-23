@@ -11,12 +11,7 @@
       ref="wrapper"
       class="mu-dropdown-panel_wrapper"
       :direction="direction"
-      :style="{
-        minWidth: wrapperMinWidth,
-        width: wrapperWidth,
-        maxHeight,
-        height
-      }">
+      :style="wrapperStyle">
       <slot />
     </div>
   </div>
@@ -97,8 +92,7 @@
         },
         slide: undefined,
         direction: undefined,
-        wrapperWidth: undefined,
-        wrapperMinWidth: undefined
+        wrapperStyle: {}
       }
     },
     mounted () {
@@ -159,10 +153,17 @@
         const el = this.$refs.wrapper
         const pRect = getClientRect(this.$parent.$el)
 
-        this.wrapperMinWidth = this.minWidth || (pRect.width + 'px')
-        this.wrapperWidth = !this.width || this.width === 'inherit'
+        const wrapperMinWidth = this.minWidth || (pRect.width + 'px')
+        const wrapperWidth = !this.width || this.width === 'inherit'
           ? (pRect.width + 'px')
           : (this.width === 'auto' ? undefined : this.width)
+
+        this.wrapperStyle = {
+          minWidth: wrapperMinWidth,
+          width: wrapperWidth,
+          maxHeight: this.maxHeight,
+          height: this.height
+        }
 
         delay()
           .then(() => {

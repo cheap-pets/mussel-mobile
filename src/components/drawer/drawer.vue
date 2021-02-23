@@ -1,13 +1,16 @@
 <template>
-  <div v-if="popupVisible"
+  <div
+    v-if="popupVisible"
     class="mu-drawer-wrapper"
     :class="{ 'mu-modal-mask': maskVisible }"
     :position="position"
     :popup="drawerPopup"
     @tap.stop="onMaskClick">
     <slot v-if="slotWrapper === 'none'" />
-    <div v-else
+    <div
+      v-else
       class="mu-drawer"
+      :margin="margin"
       :class="drawerClass"
       :style="drawerStyles">
       <slot />
@@ -61,8 +64,7 @@
           },
           {
             width: this.width,
-            height: this.height,
-            margin: this.margin
+            height: this.height
           }
         )
       }

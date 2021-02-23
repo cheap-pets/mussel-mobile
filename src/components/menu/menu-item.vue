@@ -62,6 +62,7 @@
     methods: {
       onTap () {
         if (!this.disabled) {
+          this.$emit('tap')
           this.$emit('click')
           this.select()
         }

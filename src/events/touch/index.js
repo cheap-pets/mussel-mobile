@@ -5,7 +5,7 @@ import { bind, unbind } from './touch'
 import { GESTURE_CONTEXT_PROP, EventTypes } from './constant'
 
 function interceptorAdd (type, listener, options) {
-  if (!this[GESTURE_CONTEXT_PROP]) bind(this)
+  if (!this[GESTURE_CONTEXT_PROP]) bind(this, options)
 
   const { listeners, recognizers } = this[GESTURE_CONTEXT_PROP]
 
@@ -28,7 +28,7 @@ function interceptorRemove (type, listener, options) {
   if (idx >= 0) {
     listeners.splice(idx, 0)
     if (!listeners.length) delete listeners[type]
-    if (Object.keys(listeners).length < 1) unbind(this)
+    if (Object.keys(listeners).length < 1) unbind(this, options)
   }
 }
 

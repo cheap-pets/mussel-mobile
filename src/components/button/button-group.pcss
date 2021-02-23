@@ -1,8 +1,7 @@
 .mu-button-group {
   position: relative;
-  display: inline-flex;
   height: $inputElementHeight;
-  vertical-align: top;
+  align-items: stretch;
   border-radius: $inputElementBorderRadius;
   box-shadow: $buttonShadow $normalGreyBackground;
 
@@ -17,8 +16,8 @@
   }
 
   & > .mu-button {
-    height: 100%;
-    flex: 1 1 auto;
+    flex-grow: 1;
+    flex-shrink: 1;
     box-shadow: none;
 
     &:active,

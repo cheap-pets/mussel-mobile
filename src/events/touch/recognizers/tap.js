@@ -13,7 +13,7 @@ export const tap = {
     ) {
       return false
     } else if (state === 'end') {
-      emit(ctx.el, 'tap', { gestureState: touch })
+      emit(ctx.el, 'tap', { canBubble: true, gestureState: touch })
       return true
     }
   },

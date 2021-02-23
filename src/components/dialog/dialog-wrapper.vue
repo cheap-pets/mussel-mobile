@@ -10,7 +10,8 @@
       class="mu-dialog"
       :style="style"
       :danger="params.danger"
-      :visible="params.dialogVisible">
+      :visible="params.dialogVisible"
+      @tap.native.stop>
       <h-box
         class="mu-dialog-header"
         align-items="center">
@@ -73,17 +74,11 @@
     computed: {
       style () {
         const { dialogVisible, width, height } = this.params
-        let {
-          translateX: tx,
-          translateY: ty,
-          transitionDuration
-        } = this
-        ty = dialogVisible ? ty : ty + 200
+
         return {
           width,
           height,
-          transitionDuration,
-          transform: `translate3d(${tx}px, ${ty}px, 0)`
+          transform: `translateY(${dialogVisible ? 0 : -100}px)`
         }
       }
     },

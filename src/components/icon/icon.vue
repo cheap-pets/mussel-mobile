@@ -26,6 +26,7 @@
     },
     methods: {
       onTap () {
+        this.$emit('tap')
         this.$emit('click')
       }
     }

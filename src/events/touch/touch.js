@@ -152,7 +152,7 @@ function recognize (event) {
   if (gs.activeGesture && this.el !== document) event.preventDefault()
 }
 
-export function bind (el) {
+export function bind (el, options) {
   const ctx = el[GESTURE_CONTEXT_PROP] = {
     el,
     listeners: {},
@@ -161,17 +161,17 @@ export function bind (el) {
   ctx.updateGestureState = updateGestureState.bind(ctx)
   ctx.recognize = recognize.bind(ctx)
 
-  el.addEventListener('touchstart', ctx.updateGestureState)
-  el.addEventListener('touchmove', ctx.updateGestureState)
-  el.addEventListener('touchend', ctx.updateGestureState)
+  el.addEventListener('touchstart', ctx.updateGestureState, options)
+  el.addEventListener('touchmove', ctx.updateGestureState, options)
+  el.addEventListener('touchend', ctx.updateGestureState, options)
 }
 
-export function unbind (el) {
+export function unbind (el, options) {
   const ctx = el[GESTURE_CONTEXT_PROP]
 
-  el.removeEventListener('touchstart', ctx.updateGestureState)
-  el.removeEventListener('touchmove', ctx.updateGestureState)
-  el.removeEventListener('touchend', ctx.updateGestureState)
+  el.removeEventListener('touchstart', ctx.updateGestureState, options)
+  el.removeEventListener('touchmove', ctx.updateGestureState, options)
+  el.removeEventListener('touchend', ctx.updateGestureState, options)
 
   delete el[GESTURE_CONTEXT_PROP]
 }

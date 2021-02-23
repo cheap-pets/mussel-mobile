@@ -52,9 +52,11 @@
     methods: {
       onButtonTap (event) {
         this.$emit('tap', event)
+        this.$emit('click', event)
       },
       onSplitButtonTap (event) {
-        this.$emit('splitbuttonTap', event)
+        this.$emit('splitbuttontap', event)
+        this.$emit('splitbuttonclick', event)
       }
     }
   }

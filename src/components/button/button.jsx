@@ -44,6 +44,7 @@ export default {
   methods: {
     onTap (event) {
       this.$emit('tap', event)
+      this.$emit('click', event)
     }
   },
   render (h) {

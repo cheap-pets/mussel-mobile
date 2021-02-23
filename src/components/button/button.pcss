@@ -21,6 +21,7 @@ h1 {
   text-align: center;
   color: $normalTextColor;
   cursor: pointer;
+  user-select: none;
   box-shadow: $buttonShadow $normalGreyBackground;
 
   &[icon-orient="vertical"] > .mu-icon {
@@ -231,6 +232,15 @@ h1 {
 [button-shape="round"],
 [button-shape="round"] > .mu-button {
   border-radius: $inputElementRoundRadius;
+}
+
+.mu-icon-button[button-size="big"] {
+  width: 42px;
+  height: 42px;
+
+  &[button-shape="round"] {
+    border-radius: 21px;
+  }
 }
 
 .mu-button-like {

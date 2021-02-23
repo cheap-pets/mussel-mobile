@@ -31,7 +31,7 @@ export default {
   warningColor: '#faad14',
 
   /* font */
-  documentFontSize: '12px',
+  documentFontSize: '14px',
   documentFontWeight: '400',
 
   /* normal control vars */
@@ -58,18 +58,18 @@ export default {
   normalTinyBackground: 'rgba(0, 0, 0, .02)',
 
   /* element size */
-  normalBarHeight: '44px',
+  normalBarHeight: '48px',
   compactBarHeight: '32px',
   normalLineHeight: '20px',
   normalIconWidth: '20px',
 
   /* shadow */
-  boxShadowLevel1: '0 0.5px 3px rgba(0, 0, 0, 0.25), 0 0.5px 6px rgba(0, 0, 0, 0.12)',
-  boxShadowLevel2: '0 3px 6px rgba(0, 0, 0, 0.25), 0 3px 12px rgba(0, 0, 0, 0.15)',
-  boxShadowLevel3: '0 6px 12px rgba(0, 0, 0, 0.25), 0 6px 24px rgba(0, 0, 0, 0.18)',
+  boxShadowLevel1: '0 0 3px 1px rgba(0, 0, 0, .15)',
+  boxShadowLevel2: '0 0 6px 2px rgba(0, 0, 0, 0.25), 0 0 12px 3px rgba(0, 0, 0, 0.15)',
+  boxShadowLevel3: '0 0 12px 3px rgba(0, 0, 0, 0.25), 0 0 24px 4px rgba(0, 0, 0, 0.18)',
 
   /* input & button */
-  inputElementHeight: '28px',
+  inputElementHeight: '32px',
   inputElementPaddingX: '10px',
   inputElementPadding: '5px 10px',
   inputElementRoundRadius: '16px',

@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta
     name="viewport"
-    content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui"
+    content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0, minimal-ui"
   >
   <script type="text/javascript" src="../node_modules/vue/dist/vue.js"></script>
   <script type="text/javascript" src="../dist/mussel.js"></script>
@@ -26,19 +26,18 @@
       </mu-form-row>
       <div class="mu-divider" dashed></div>
       <mu-form-field label="Field3">
-        <mu-input></mu-input>
+        <mu-date-editor></mu-date-editor>
       </mu-form-field>
     </mu-form>
-    <mu-bar>
+    <mu-bar border>
       <label>
         <mu-icon icon="menu"></mu-icon>
-        Menu
+        Filter
       </label>
       <mu-combo-box shape="round" placeholder="choose ...">
         <mu-option value="blue"></mu-option>
         <mu-option value="green"></mu-option>
         <mu-option value="red"></mu-option>
-        <mu-option></mu-option>
       </mu-combo-box>
       <mu-dropdown-button caption="Choose Status" button-shape="round">
         <template #dropdown>
@@ -49,31 +48,91 @@
         </template>
       </mu-dropdown-button>
     </mu-bar>
-    <mu-bar margin="top double" justify-content="center">
+    <mu-bar margin="top double" justify-content="center" border>
       <mu-button-group button-shape="round">
-        <mu-button active>Button One</mu-button>
-        <mu-button>Button Two</mu-button>
-        <mu-button>Button Three</mu-button>
+        <mu-button active style="width: 100px;">Button One</mu-button>
+        <mu-button style="width: 100px;">Button Two2</mu-button>
+        <mu-button style="width: 100px;">Button Three</mu-button>
       </mu-button-group>
     </mu-bar>
-    <mu-bar class="mu-tab-bar" margin="top double" shadow>
-      <mu-button button-style="link" icon-orient="vertical" icon="ok">Button Left</mu-button>
-      <mu-icon-button
-        class="mu-bar_float-button"
-        button-shape="round"
-        button-type="primary"
-        icon="search"
-        shadow>
-      </mu-icon-button>
-      <mu-button button-style="link" icon-orient="vertical" icon="x">Button Right</mu-button>
+    <mu-bar margin="top double" border>
+      <label>
+        <mu-icon icon="menu"></mu-icon>
+        Drawer
+      </label>
+      <mu-button @tap="showDrawer('top')">Top</mu-button>
+      <mu-button @tap="showDrawer('bottom')">Bottom</mu-button>
+      <mu-button @tap="showDrawer('left')">Left</mu-button>
+      <mu-button @tap="showDrawer('right')">Right</mu-button>
     </mu-bar>
+    <mu-bar class="mu-tab-bar mu-absolute-bottom" shadow>
+      <mu-button
+        button-style="link"
+        icon-orient="vertical"
+        icon="ok"
+        @tap="showMessage">
+        Button Left
+      </mu-button>
+      <div class="mu-bar_float-button">
+        <mu-icon-button button-type="primary" icon="search"></mu-icon-button>
+        <label>Button Center</label>
+      </div>
+      <mu-button
+        button-style="link"
+        icon-orient="vertical"
+        icon="x"
+        @tap="notify">
+        Button Right
+      </mu-button>
+    </mu-bar>
+    <mu-drawer
+      v-model="drawVisible"
+      :width="drawWidth"
+      :margin="drawMargin"
+      :position="drawPosition">
+        <mu-list-item icon="folder">Item One</mu-list-item>
+        <div class="mu-divider" dashed></div>
+        <mu-list-item icon="folder">Item Two</mu-list-item>
+        <div class="mu-divider" dashed></div>
+        <mu-list-item icon="folder">Item Three</mu-list-item>
+        <div class="mu-divider" dashed></div>
+        <mu-list-item icon="folder">Item Four</mu-list-item>
+    </mu-drawer>
+    <mu-expander class="mu-bordered" margin="top double" expanded title="click to expand">
+      <mu-list-item>Javascript</mu-list-item>
+      <mu-list-item>Nginx & Lua</mu-list-item>
+      <mu-list-item>Flutter & Dart</mu-list-item>
+    </mu-expander>
   </div>
 
   <script type="text/javascript">
     const view = new Vue({
       el: '#app',
+      data: {
+        drawVisible: false,
+        drawWidth: undefined,
+        drawPosition: 'bottom',
+        drawMargin: 'left right double'
+      },
       methods: {
-
+        showMessage () {
+          mussel.confirm('What do you want ?')
+        },
+        notify () {
+          const NotifyTypes = ['normal', 'primary', 'success', 'warning', 'error']
+          const i = (+new Date()) % 5
+          mussel.notify(NotifyTypes[i], 'incoming msg: ' + NotifyTypes[i])
+        },
+        showDrawer (position) {
+          this.drawWidth = position === 'left' || position === 'right'
+            ? '80%'
+            : undefined
+          this.drawMargin = position === 'top' || position === 'bottom'
+            ? 'left right double'
+            : undefined
+          this.drawPosition = position
+          this.drawVisible = true
+        }
       }
     })
   </script>

@@ -1,5 +1,3 @@
-import isString from 'lodash.isstring'
-
 function callbackIf (name, handler) {
   const popup = window['__mussel_' + name]
   if (popup) handler(popup)
@@ -26,7 +24,7 @@ function setPositionIf () {
   callbackIf('dropdown', dropdown => dropdown.setPosition())
 }
 
-window.addEventListener('blur', () => hideIf('dropdown'))
+// window.addEventListener('blur', () => hideIf('dropdown'))
 
 window.addEventListener(
   'keyup',

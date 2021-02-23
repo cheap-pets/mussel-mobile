@@ -2,8 +2,6 @@
   z-index: 998;
 
   & > .mu-dialog {
-    min-width: 300px;
-
     & > .mu-dialog-body > div {
       padding: $unitSpacingSize;
     }
@@ -18,19 +16,19 @@
   position: fixed;
   z-index: 999;
   top: 0;
-  right: 0;
+  left: 32px;
+  right: 32px;
   padding: $halfSpacingSize;
-  overflow: hidden;
 
   & > div {
-    width: $notifyWidth;
+    position: relative;
+    width: 200px;
     font-size: 1rem;
-    line-height: 20px;
-    margin: $halfSpacingSize;
-    padding: $unitSpacingSize;
+    margin: $halfSpacingSize auto;
+    padding: $halfSpacingSize;
     background: $normalBackground;
-    border-left: 9px solid var(--mu-primary-color);
-    border-radius: 8px;
+    text-align: center;
+    border-radius: 100px;
     box-shadow: $notifyShadow;
     
     &[link-style]:active {
@@ -39,27 +37,38 @@
     }
   }
 
+  & > [notify-type=primary] {
+    background-color: var(--mu-primary-color);
+    color: $normalHighlightTextColor;
+  }
+
   & > [notify-type=success] {
-    border-color: var(--mu-success-color);
-    color: var(--mu-success-color);
+    background-color: var(--mu-success-color);
+    color: $normalHighlightTextColor;
   }
 
   & > [notify-type=warning] {
-    border-color: var(--mu-warning-color);
-    color: var(--mu-warning-color);
+    background-color: var(--mu-warning-color);
+    color: $normalHighlightTextColor;
   }
 
   & > [notify-type=danger],
   & > [notify-type=error] {
-    border-color: var(--mu-danger-color);
-    color: var(--mu-danger-color);
+    background-color: var(--mu-danger-color);
+    color: $normalHighlightTextColor;
   }
 }
 
-.mu-notifier-enter, .mu-notifier-leave-to {
+.mu-notifier-enter {
+  opacity: 0;
+  transform: translateX(-100px);
+}
+
+.mu-notifier-leave-to {
   opacity: 0;
   transform: translateX(100px);
 }
+
 .mu-notifier-move, .mu-notifier-enter-active, .mu-notifier-leave-active {
   transition: all .5s;
 }

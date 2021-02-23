@@ -63,10 +63,16 @@
     },
     methods: {
       onTap () {
-        if (!this.disabled) this.$emit('click')
+        if (!this.disabled) {
+          this.$emit('tap')
+          this.$emit('click')
+        }
       },
       onIconTap () {
-        if (!this.disabled) this.$emit('iconTap')
+        if (!this.disabled) {
+          this.$emit('icontap')
+          this.$emit('iconclick')
+        }
       }
     }
   }

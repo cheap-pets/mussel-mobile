@@ -43,6 +43,7 @@ export default {
           value: this.value,
           label: this.label
         })
+        this.$emit('tap')
         this.$emit('click')
       }
     }

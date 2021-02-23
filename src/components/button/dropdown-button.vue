@@ -56,12 +56,6 @@
     mixins: [SplitButton],
     props: {
       splitButton: Boolean
-    },
-    methods: {
-      onButtonTap (event) {
-        if (!this.splitButton) this.onTap(event)
-        this.$emit('tap', event)
-      }
     }
   }
 </script>
