@@ -74,7 +74,7 @@ export default {
     }
   },
   methods: {
-    onTap () {
+    onTap (event) {
       if (this.disabled) return
       this.editor.toggleSelection(
         this.actualValue,
@@ -82,8 +82,8 @@ export default {
         this.option,
         this.fields
       )
-      this.$emit('tap')
-      this.$emit('click')
+      this.$emit('tap', event)
+      this.$emit('click', event)
     }
   }
 }

@@ -37,14 +37,14 @@ export default {
     }
   },
   methods: {
-    onTap () {
+    onTap (event) {
       if (!this.disabled) {
         this.dropdown?.onItemClick({
           value: this.value,
           label: this.label
         })
-        this.$emit('tap')
-        this.$emit('click')
+        this.$emit('tap', event)
+        this.$emit('click', event)
       }
     }
   }

@@ -85,8 +85,8 @@
       onClearClick () {
         this.editor.onClearClick()
       },
-      onButtonTap () {
-        this.editor.onButtonTap()
+      onButtonTap (event) {
+        this.editor.onButtonTap(event)
       },
       onKeyPress (event) {
         this.editor.onKeyPress(event)

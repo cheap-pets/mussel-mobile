@@ -8,14 +8,14 @@
     content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0, minimal-ui"
   >
   <script type="text/javascript" src="../node_modules/vue/dist/vue.js"></script>
-  <script type="text/javascript" src="../dist/mussel.js"></script>
+  <script type="text/javascript" src="../dist/mussel-mobile.js"></script>
 
-  <title>Gesture Example</title>
+  <title>Mussel Demo</title>
 </head>
 
 <body class="mu-background-grey">
   <div id="app">
-    <mu-form class="mu-card" border margin="double" label-width="50px">
+    <mu-form class="mu-card" border margin="x2" label-width="50px">
       <mu-form-row>
         <mu-form-field label="Field1">
           <mu-input></mu-input>
@@ -29,7 +29,7 @@
         <mu-date-editor popup-style="drawer"></mu-date-editor>
       </mu-form-field>
     </mu-form>
-    <mu-bar border>
+    <mu-bar border="top bottom">
       <label>
         <mu-icon icon="menu"></mu-icon>
         Filter
@@ -48,14 +48,16 @@
         </template>
       </mu-dropdown-button>
     </mu-bar>
-    <mu-bar margin="top double" justify-content="center" border>
+    <mu-tabs-header margin="top x2" :tab-items="tabItems">
+    </mu-tabs-header>
+    <mu-bar margin="top x2" justify-content="center" border="top bottom">
       <mu-button-group button-shape="round">
         <mu-button active style="width: 100px;">Button One</mu-button>
         <mu-button style="width: 100px;">Button Two2</mu-button>
         <mu-button style="width: 100px;">Button Three</mu-button>
       </mu-button-group>
     </mu-bar>
-    <mu-bar margin="top double" border>
+    <mu-bar margin="top x2" border="top bottom">
       <label>
         <mu-icon icon="menu"></mu-icon>
         Drawer
@@ -98,7 +100,7 @@
         <div class="mu-divider" dashed></div>
         <mu-list-item icon="folder">Item Four</mu-list-item>
     </mu-drawer>
-    <mu-expander class="mu-bordered" margin="top double" expanded title="click to expand">
+    <mu-expander margin="top x2" expanded border="top bottom" title="click to expand">
       <div class="mu-divider" dashed></div>
       <mu-list-item>Javascript</mu-list-item>
       <mu-list-item>Nginx & Lua</mu-list-item>
@@ -113,7 +115,22 @@
         drawVisible: false,
         drawWidth: undefined,
         drawPosition: 'bottom',
-        drawMargin: 'left right double'
+        drawMargin: 'left right x2',
+        tabItems: [
+          {
+            name: 'tab1',
+            label: 'tab-1'
+          },
+          {
+            name: 'tab2',
+            label: 'tab2',
+            disabled: true
+          },
+          {
+            name: 'tab3',
+            label: 'tab-3'
+          }
+        ]
       },
       methods: {
         showMessage () {
@@ -129,7 +146,7 @@
             ? '80%'
             : undefined
           this.drawMargin = position === 'top' || position === 'bottom'
-            ? 'left right double'
+            ? 'left right x2'
             : undefined
           this.drawPosition = position
           this.drawVisible = true

@@ -27,7 +27,7 @@ const isDevEnv = process.env.dev
 
 const output = [
   {
-    file: 'dist/mussel.js',
+    file: 'dist/mussel-mobile.js',
     format: 'umd',
     name: 'mussel',
     globals: {
@@ -40,7 +40,7 @@ const output = [
     ? undefined
     : [
         {
-          file: 'dist/mussel.esm.js',
+          file: 'dist/mussel-mobile.esm.js',
           format: 'esm',
           globals: {
             vue: 'Vue'
@@ -48,7 +48,7 @@ const output = [
           sourcemap: false
         },
         {
-          file: 'dist/mussel.min.js',
+          file: 'dist/mussel-mobile.min.js',
           format: 'umd',
           name: 'mussel',
           plugins: isDevEnv ? undefined : [terser()],
@@ -58,7 +58,7 @@ const output = [
           sourcemap: false
         },
         {
-          file: 'dist/mussel.esm.min.js',
+          file: 'dist/mussel-mobile.esm.min.js',
           format: 'esm',
           plugins: isDevEnv ? undefined : [terser()],
           globals: {
@@ -125,7 +125,7 @@ export default {
             : undefined
         )
       ]
-      // extract: path.resolve(__dirname, 'dist/mussel.css')
+      // extract: path.resolve(__dirname, 'dist/mussel-mobile.css')
     }),
     resolve({
       mainFields: ['module', 'main', 'browser']

@@ -60,10 +60,10 @@
       }
     },
     methods: {
-      onTap () {
+      onTap (event) {
         if (!this.disabled) {
-          this.$emit('tap')
-          this.$emit('click')
+          this.$emit('tap', event)
+          this.$emit('click', event)
           this.select()
         }
       },

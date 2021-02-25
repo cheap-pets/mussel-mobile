@@ -132,7 +132,7 @@
         this.delaySetValue(true)
         this.focus()
 
-        this.$emit('optionTap', value, label, option)
+        this.$emit('optiontap', value, label, option)
         this.$emit('change', this.comboValue, option)
       },
       onClearClick () {

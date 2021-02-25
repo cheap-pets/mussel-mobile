@@ -25,9 +25,9 @@
       }
     },
     methods: {
-      onTap () {
-        this.$emit('tap')
-        this.$emit('click')
+      onTap (event) {
+        this.$emit('tap', event)
+        this.$emit('click', event)
       }
     }
   }

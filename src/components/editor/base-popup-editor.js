@@ -26,10 +26,10 @@ export default {
       }
       this.$emit('inputclick')
     },
-    onButtonTap () {
+    onButtonTap (event) {
       this.focus()
       this.togglePopup()
-      this.$emit('buttonTap')
+      this.$emit('buttontap', event)
     },
     onClearClick () {
       this.hidePopup()

@@ -127,9 +127,9 @@ export default {
       this.clear()
       this.$emit('change', '')
     },
-    onButtonTap () {
+    onButtonTap (event) {
       this.focus()
-      if (this.params.iconTapable) this.$emit('buttonTap')
+      if (this.params.iconTapable) this.$emit('buttontap', event)
     },
     onKeyPress (event) {
       this.$emit('keypress', event)

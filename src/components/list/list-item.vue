@@ -64,14 +64,14 @@
     methods: {
       onTap () {
         if (!this.disabled) {
-          this.$emit('tap')
+          this.$emit('tap', event)
           this.$emit('click')
         }
       },
-      onIconTap () {
+      onIconTap (event) {
         if (!this.disabled) {
-          this.$emit('icontap')
-          this.$emit('iconclick')
+          this.$emit('icontap', event)
+          this.$emit('iconclick', event)
         }
       }
     }

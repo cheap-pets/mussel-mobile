@@ -4,8 +4,11 @@
 
 .mu-tabs-header {
   font-size: 1rem;
+  background: $normalBackground;
 
   &[tab-style="card"] {
+    padding: 0;
+
     & > .mu-tab-item {
       background: $tabCardBackground;
       border-style: solid;
@@ -49,9 +52,9 @@
         right: 0;
         height: 2px;
       }
-      & + .mu-tab-item  {
-        margin-left: 20px;
-      }
+      /* & + .mu-tab-item  {
+        margin-left: $unitSpacingSize;
+      } */
     }
 
     &[tab-style="card"] {
@@ -121,7 +124,7 @@
 
   &[tab-position=top] {
     flex: 0 1 auto;
-    border-bottom: 2px solid $normalDividerColor;
+    border-bottom: 2px solid $normalBorderColor;
 
     & > .mu-tab-item {
       border-bottom: 0;
@@ -155,7 +158,7 @@
   }
   &[tab-position=bottom] {
     flex: 0 1 auto;
-    border-top: 2px solid $normalDividerColor;
+    border-top: 2px solid $normalBorderColor;
 
     & > [active]:after {
       top: -2px;
@@ -184,7 +187,7 @@
     }
   }
   &[tab-position=left] {
-    border-right: 2px solid $normalDividerColor;
+    border-right: 2px solid $normalBorderColor;
 
     & > *:not(.mu-tab-item) {
       align-self: flex-end;
@@ -227,7 +230,7 @@
     }
   }
   &[tab-position=right] {
-    border-left: 2px solid $normalDividerColor;
+    border-left: 2px solid $normalBorderColor;
 
     & > * {
       margin-left: $unitSpacingSize;
@@ -273,6 +276,7 @@
 
 .mu-tab-item {
   display: flex;
+  flex: 1 1 auto;
   align-items: center;
   min-width: 40px;
   cursor: pointer;
@@ -280,7 +284,7 @@
   & > .mu-tab-label {
     display: inline-block;
     width: 100%;
-    float: left;
+    text-align: center;
   }
 
   &:active {

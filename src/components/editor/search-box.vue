@@ -91,7 +91,7 @@
         this.hidePopup()
         this.setValue(label, true)
         this.$emit('change', value, label, option)
-        this.$emit('optionTap', value, label, option)
+        this.$emit('optiontap', value, label, option)
         this.$el.querySelector('input').focus()
         this.focus()
       },
