@@ -58,7 +58,7 @@
           ? {
             icon: p.icon,
             iconClass: p.iconClass,
-            clickable: p.iconTapable
+            clickable: p.iconClickable
           }
           : undefined
       },

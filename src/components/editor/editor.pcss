@@ -38,7 +38,7 @@
   }
 
   & > .mu-editor_eraser {
-    display: none;
+    display: inline-flex;
     color: $normalWeakTextColor;
     right: calc($inputElementHeight / 2 - 7px);
 
@@ -80,20 +80,14 @@
     }
   }
 
-  &:active > .mu-editor_eraser {
-    display: inline-flex;
-  }
-
   &[clearable] {
-    &[icon-align]:active > input {
+    &[icon-align] > input {
       padding-right: calc($inputElementHeight / 2 + 37px);
     }
     
-    &,
-    &[icon-align=left] {
-      &:active > input {
-        padding-right: calc($inputElementHeight - 2px);
-      }
+    & > input,
+    &[icon-align=left] > input {
+      padding-right: calc($inputElementHeight - 2px);
     }
   }
 
