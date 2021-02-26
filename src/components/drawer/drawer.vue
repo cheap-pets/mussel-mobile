@@ -105,6 +105,13 @@
           !this.$el.contains(triggerEl) &&
           triggerEl.className.indexOf('mu-modal-mask') === -1
         ) this.hide()
+      },
+      onMaskClick (event) {
+        if (event.gestureState.target === this.$el) {
+          const action = this.$options.maskAction || this.maskAction
+          if (action === 'close') this.hide()
+          this.$emit('maskclick')
+        }
       }
     }
   }
