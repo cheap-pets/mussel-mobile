@@ -43,12 +43,13 @@
     watch: {
       expanded: {
         handler (value) {
-          this.actualExpanded = value
+          if (this.actualExpanded === !value) this.toggleExpand()
         },
-        immediate: true
+        immediate: false
       }
     },
     mounted () {
+      this.actualExpanded = this.expanded
       this.triggerElements = Array.from(
         this.$el.querySelectorAll('[expand-trigger]')
       )

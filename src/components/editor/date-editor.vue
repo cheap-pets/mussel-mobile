@@ -28,6 +28,10 @@
         type: String,
         default: '280px'
       },
+      icon: {
+        type: String,
+        default: 'calendar'
+      },
       value: [String, Date],
       format: String,
       rangeStart: Date,
