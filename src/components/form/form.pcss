@@ -1,9 +1,11 @@
 .mu-form-field {
   min-width: 80px;
+  min-height: $normalBarHeight;
+  align-items: center;
+  padding: $halfSpacingSize;
 
   & > label {
     display: inline-block;
-    line-height: $inputElementHeight;
     padding-right: 12px;
     font-size: $formLabelFontSize;
     font-weight: 500;
@@ -23,11 +25,6 @@
     }
   }
 
-  & > label + span {
-    display: inline-block;
-    line-height: $inputElementHeight;
-  }
-
   &[required] > label:before {
     visibility: visible;
   }
@@ -38,9 +35,20 @@
 
   & > .mu-editor,
   & > .mu-input,
-  & > span {
-    flex: 1 1 1px;
-    width: 1px;
+  & > .mu-form-field_value {
+    flex: 1 1 auto;
+  }
+
+  & > .mu-form-field_value {
+    text-align: right;
+    margin-right: 2px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  & > .mu-icon {
+    color: $normalSubtitleTextColor;
   }
 }
 
@@ -48,64 +56,3 @@
 .mu-form-field {
   width: 100%;
 }
-
-.mu-form {
-  &[form-style="table"] {
-    border: 1px solid $normalBorderColor;
-
-    & > .mu-form-row {
-      & + .mu-form-row  {
-        border-top: 1px solid $normalBorderColor;
-      }
-      & > .mu-form-field {
-        align-items: center;
-        height: $normalBarHeight;
-        border-right: 1px solid $normalBorderColor;
-
-        &:last-child {
-          border-right: 0;
-        }
-
-        & > label,
-        & > span {
-          overflow: hidden;
-          line-height: 20px;
-          white-space: nowrap;
-          text-overflow: ellipsis;
-          padding: 0 $halfSpacingSize;
-        }
-        
-        & > .mu-editor,
-        & > .mu-input {
-          margin: 0 4px;
-        }
-        & .mu-input {
-          border-style: dashed;
-          &:active {
-            border-style: solid;
-          }
-        }
-        & > label:first-child {
-          display: inline-flex;
-          align-self: stretch;
-          align-items: center;
-          border-right: 1px solid $normalBorderColor;
-          background-color: $normalGreyBackground;
-        }
-      }
-    }
-
-    &[row-height="compact"] > .mu-form-row,
-    & > .mu-form-row[row-height="compact"] {
-      & > .mu-form-field {
-        height: $compactBarHeight;
-
-        & > .mu-editor,
-        & > .mu-input {
-          margin: 0;
-        }
-      }
-    }
-  }
-}
-

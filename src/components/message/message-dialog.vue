@@ -16,7 +16,7 @@
         this.hide(trigger)
 
         delay(500).then(() => {
-          this.$el.parentNode.removeChild(this.$el)
+          this.$el.parentNode?.removeChild(this.$el)
           this.$destroy()
         })
       },

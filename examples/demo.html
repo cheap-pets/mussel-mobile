@@ -11,62 +11,109 @@
   <script type="text/javascript" src="../dist/mussel-mobile.js"></script>
 
   <title>Mussel Demo</title>
+
+  <style>
+  </style>
 </head>
 
 <body class="mu-background-grey">
-  <div id="app">
-    <mu-form class="mu-card" border margin="x2" label-width="50px">
-      <mu-form-row>
-        <mu-form-field label="Field1">
-          <mu-input></mu-input>
+  <div id="app" class="mu-absolute-fit">
+    <div class="mu-absolute-fit" style="padding-bottom: 100px; overflow: auto;">
+      <mu-form class="mu-card" border margin="x2" label-width="55px">
+        <mu-form-row>
+          <mu-form-field label="Field1">
+            <mu-editor></mu-editor>
+          </mu-form-field>
+          <mu-form-field label="Field2">
+            <mu-editor icon="folder"></mu-editor>
+          </mu-form-field>
+        </mu-form-row>
+        <div class="mu-divider" dashed></div>
+        <mu-form-field label="Field3">
+          <mu-date-editor popup-style="drawer"></mu-date-editor>
         </mu-form-field>
-        <mu-form-field label="Field2">
-          <mu-input></mu-input>
+        <div class="mu-divider"></div>
+        <mu-form-field
+          label="Field3"
+          value="Field 3 Value"
+          icon="key-right"
+          @valuetap="onField3Tap">
         </mu-form-field>
-      </mu-form-row>
-      <div class="mu-divider" dashed></div>
-      <mu-form-field label="Field3">
-        <mu-date-editor popup-style="drawer"></mu-date-editor>
-      </mu-form-field>
-    </mu-form>
-    <mu-bar border="top bottom">
-      <label>
-        <mu-icon icon="menu"></mu-icon>
-        Filter
-      </label>
-      <mu-combo-box shape="round" placeholder="choose ...">
-        <mu-option value="blue"></mu-option>
-        <mu-option value="green"></mu-option>
-        <mu-option value="red"></mu-option>
-      </mu-combo-box>
-      <mu-dropdown-button caption="Choose Status" button-shape="round" popup-style="window">
-        <template #dropdown>
-          <mu-dropdown-item>one</mu-dropdown-item>
-          <mu-dropdown-item>two</mu-dropdown-item>
-          <mu-list-divider></mu-list-divider>
-          <mu-dropdown-item>three</mu-dropdown-item>
+        <div class="mu-divider"></div>
+        <mu-form-dropdown-field label="Field3" value="Dropdown Field">
+          <template #dropdown>
+            <mu-dropdown-item>one</mu-dropdown-item>
+            <mu-dropdown-item>two</mu-dropdown-item>
+            <mu-list-divider></mu-list-divider>
+            <mu-dropdown-item>three</mu-dropdown-item>
+          </template>
+        </mu-form-dropdown-field>
+      </mu-form>
+      <mu-bar border="top bottom">
+        <label>
+          <mu-icon icon="menu"></mu-icon>
+          Filter
+        </label>
+        <mu-combo-box shape="round" placeholder="choose ...">
+          <mu-option value="blue"></mu-option>
+          <mu-option value="green"></mu-option>
+          <mu-option value="red"></mu-option>
+        </mu-combo-box>
+        <mu-dropdown-button caption="Choose Status" button-shape="round" popup-style="window">
+          <template #dropdown>
+            <mu-dropdown-item>one</mu-dropdown-item>
+            <mu-dropdown-item>two</mu-dropdown-item>
+            <mu-list-divider></mu-list-divider>
+            <mu-dropdown-item>three</mu-dropdown-item>
+          </template>
+        </mu-dropdown-button>
+      </mu-bar>
+      <mu-tabs-header
+        margin="top x2"
+        :tab-items="tabItems"
+        tab-position="top">
+        <template #header-prefix>
+          <mu-icon-button icon="refresh" />
         </template>
-      </mu-dropdown-button>
-    </mu-bar>
-    <mu-tabs-header margin="top x2" :tab-items="tabItems">
-    </mu-tabs-header>
-    <mu-bar margin="top x2" justify-content="center" border="top bottom">
-      <mu-button-group button-shape="round">
-        <mu-button active style="width: 100px;">Button One</mu-button>
-        <mu-button style="width: 100px;">Button Two2</mu-button>
-        <mu-button style="width: 100px;">Button Three</mu-button>
-      </mu-button-group>
-    </mu-bar>
-    <mu-bar margin="top x2" border="top bottom">
-      <label>
-        <mu-icon icon="menu"></mu-icon>
-        Drawer
-      </label>
-      <mu-button @tap="showDrawer('top')">Top</mu-button>
-      <mu-button @tap="showDrawer('bottom')">Bottom</mu-button>
-      <mu-button @tap="showDrawer('left')">Left</mu-button>
-      <mu-button @tap="showDrawer('right')">Right</mu-button>
-    </mu-bar>
+      </mu-tabs-header>
+      <mu-bar margin="top x2" justify-content="center" border="top bottom">
+        <mu-button-group button-shape="round">
+          <mu-button active style="width: 100px;">Button One</mu-button>
+          <mu-button style="width: 100px;">Button Two2</mu-button>
+          <mu-button style="width: 100px;">Button Three</mu-button>
+        </mu-button-group>
+      </mu-bar>
+      <mu-bar margin="top x2" border="top bottom">
+        <label>
+          <mu-icon icon="menu"></mu-icon>
+          Drawer
+        </label>
+        <mu-button @tap="showDrawer('top')">Top</mu-button>
+        <mu-button @tap="showDrawer('bottom')">Bottom</mu-button>
+        <mu-button @tap="showDrawer('left')">Left</mu-button>
+        <mu-button @tap="showDrawer('right')">Right</mu-button>
+      </mu-bar>
+
+      <mu-drawer
+        v-model="drawVisible"
+        :width="drawWidth"
+        :margin="drawMargin"
+        :position="drawPosition">
+          <mu-list-item icon="folder">Item One</mu-list-item>
+          <div class="mu-divider" dashed></div>
+          <mu-list-item icon="folder">Item Two</mu-list-item>
+          <div class="mu-divider" dashed></div>
+          <mu-list-item icon="folder">Item Three</mu-list-item>
+          <div class="mu-divider" dashed></div>
+          <mu-list-item icon="folder">Item Four</mu-list-item>
+      </mu-drawer>
+      <mu-expander margin="top x2" expanded border="top bottom" title="click to expand">
+        <div class="mu-divider" dashed></div>
+        <mu-list-item>Javascript</mu-list-item>
+        <mu-list-item>Nginx & Lua</mu-list-item>
+        <mu-list-item>Flutter & Dart</mu-list-item>
+      </mu-expander>
+    </div>
     <mu-bar class="mu-tab-bar mu-absolute-bottom" shadow>
       <mu-button
         button-style="link"
@@ -87,25 +134,6 @@
         Button Right
       </mu-button>
     </mu-bar>
-    <mu-drawer
-      v-model="drawVisible"
-      :width="drawWidth"
-      :margin="drawMargin"
-      :position="drawPosition">
-        <mu-list-item icon="folder">Item One</mu-list-item>
-        <div class="mu-divider" dashed></div>
-        <mu-list-item icon="folder">Item Two</mu-list-item>
-        <div class="mu-divider" dashed></div>
-        <mu-list-item icon="folder">Item Three</mu-list-item>
-        <div class="mu-divider" dashed></div>
-        <mu-list-item icon="folder">Item Four</mu-list-item>
-    </mu-drawer>
-    <mu-expander margin="top x2" expanded border="top bottom" title="click to expand">
-      <div class="mu-divider" dashed></div>
-      <mu-list-item>Javascript</mu-list-item>
-      <mu-list-item>Nginx & Lua</mu-list-item>
-      <mu-list-item>Flutter & Dart</mu-list-item>
-    </mu-expander>
   </div>
 
   <script type="text/javascript">
@@ -119,16 +147,38 @@
         tabItems: [
           {
             name: 'tab1',
-            label: 'tab-1'
+            label: 'Tab-1',
+            icon: 'folder'
           },
           {
             name: 'tab2',
-            label: 'tab2',
+            label: 'Tab2',
+            icon: 'folder',
             disabled: true
           },
           {
             name: 'tab3',
-            label: 'tab-3'
+            icon: 'folder',
+            label: 'Tab-3'
+          },
+          {
+            name: 'tab4',
+            label: 'tab4',
+            icon: 'folder',
+            disabled: true
+          },
+          {
+            name: 'tab5',
+            label: 'tab-5'
+          },
+          {
+            name: 'tab6',
+            label: 'tab6',
+            disabled: true
+          },
+          {
+            name: 'tab7',
+            label: 'tab-7 is here'
           }
         ]
       },
@@ -149,6 +199,9 @@
             ? 'left right x2'
             : undefined
           this.drawPosition = position
+          this.drawVisible = true
+        },
+        onField3Tap () {
           this.drawVisible = true
         }
       }

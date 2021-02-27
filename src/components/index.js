@@ -44,6 +44,7 @@ import CheckboxGroup from './selection/checkbox-group.vue'
 import Form from './form/form.vue'
 import FormRow from './form/form-row.vue'
 import FormField from './form/form-field.vue'
+import FormDropdownField from './form/form-dropdown-field.vue'
 
 /* LIST */
 import ListItem from './list/list-item.vue'
@@ -122,6 +123,7 @@ function installComponents (Vue) {
   Vue.component('mu-form', Form)
   Vue.component('mu-form-row', FormRow)
   Vue.component('mu-form-field', FormField)
+  Vue.component('mu-form-dropdown-field', FormDropdownField)
 
   Vue.component('mu-toggle', Toggle)
 
@@ -192,6 +194,7 @@ export {
   Form,
   FormRow,
   FormField,
+  FormDropdownField,
   // Toggle
   Toggle,
   // List

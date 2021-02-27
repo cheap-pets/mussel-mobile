@@ -3,135 +3,77 @@
 }
 
 .mu-tabs-header {
+  position: relative;
   font-size: 1rem;
   background: $normalBackground;
 
-  &[tab-style="card"] {
-    padding: 0;
+  & > * {
+    margin: 0 $halfSpacingSize;
+  }
 
-    & > .mu-tab-item {
-      background: $tabCardBackground;
-      border-style: solid;
-      border-color: $normalBorderColor;
-      
-      &[active] {
-        background: $normalBackground;
-      }
-    }
-    & > [active]:before {
-      position: absolute;
-      background-color: var(--mu-primary-color);
-      content: '';
-    }
-    & > [active]:after {
-      background: $normalBackground;
-    }
-    & ~ .mu-tab-panel {
-      padding: $unitSpacingSize;
-      border: 1px solid $normalBorderColor;
+  & > .mu-button {
+    flex: none;
+  }
 
-      & > .mu-absolute-fit {
-        top: $unitSpacingSize;
-        left: $unitSpacingSize;
-        right: $unitSpacingSize;
-        bottom: $unitSpacingSize;
-      }
-    }
+  &::after {
+    position: absolute;
+    display: block;
+    content: '';
+    background: $normalBorderColor;
+  }
+
+  & > .mu-tabs-header_wrapper {
+    overflow: auto;
+    flex: 1 1 auto;
+    align-self: stretch;
+    margin: 0;
   }
 
   &[tab-position=top],
   &[tab-position=bottom] {
+    display: flex;
+    flex-direction: row;
     align-items: center;
     height: $normalBarHeight;
 
-    & > .mu-tab-item {
-      align-self: stretch;
-
-      &[active]:after {
-        left: 0;
-        right: 0;
-        height: 2px;
-      }
-      /* & + .mu-tab-item  {
-        margin-left: $unitSpacingSize;
-      } */
+    &::after {
+      left: 0;
+      right: 0;
+      height: 2px;
     }
 
-    &[tab-style="card"] {
-      border: 0;
-      & > .mu-tab-item  {
-        margin-left: 0;
-        padding: 0 $unitSpacingSize;
-        border-width: 0;
-        border-right-width: 1px;
-        border-left-width: 1px;
-
-        &[active] {
-          &:before {
-            left: -1px;
-            right: -1px;
-            height: 3px;
-          }
-          &:after {
-            height: 1px;
-          }
-        }
-
-        & + .mu-tab-item {
-          border-left-width: 0;
-        }
-      }
+    & .mu-tab-item {
+      align-self: stretch;
     }
   }
+
   &[tab-position=left],
   &[tab-position=right] {
     display: inline-flex;
+    flex-direction: column;
 
-    & > .mu-tab-item {
-      height: $normalBarHeight;
-      &[active]:after {
-        top: 0;
-        bottom: 0;
-        width: 2px;
-      }
+    &::after {
+      top: 0;
+      bottom: 0;
+      width: 2px;
     }
 
-    &[tab-style="card"] {
-      border: 0;
-      & > .mu-tab-item  {
-        padding: 0 $unitSpacingSize;
-        border-width: 0;
-        border-top-width: 1px;
-        border-bottom-width: 1px;
+    & > .mu-tabs-header_wrapper {
+      flex-direction: column;
+    }
 
-        &[active] {
-          &:before {
-            top: -1px;
-            bottom: -1px;
-            width: 3px;
-          }
-          &:after {
-            width: 1px;
-          }
-        }
-
-        & + .mu-tab-item {
-          border-top-width: 0;
-        }
-      }
+    & .mu-tab-item {
+      height: $normalBarHeight;
     }
   }
 
   &[tab-position=top] {
-    flex: 0 1 auto;
-    border-bottom: 2px solid $normalBorderColor;
-
-    & > .mu-tab-item {
-      border-bottom: 0;
+    &::after {
+      bottom: 0;
     }
 
-    & > [active]:after {
-      bottom: -2px;
+    & .mu-tab-item {
+      border-bottom: 2px solid transparent;
     }
 
     & ~ .mu-tab-panel {
@@ -142,26 +84,14 @@
         top: $unitSpacingSize;
       }
     }
-
-    &[tab-style="card"] {
-      border-bottom: 1px solid $normalBorderColor;
-      & > .mu-tab-item {
-        border-top-width: 1px;
-      }
-      & > [active]:before {
-        top: -1px;
-      }
-      & > [active]:after {
-        bottom: -1px;
-      }
-    }
   }
   &[tab-position=bottom] {
-    flex: 0 1 auto;
-    border-top: 2px solid $normalBorderColor;
+    &::after {
+      top: 0;
+    }
 
-    & > [active]:after {
-      top: -2px;
+    & .mu-tab-item {
+      border-top: 2px solid transparent;
     }
 
     & ~ .mu-tab-panel {
@@ -172,36 +102,19 @@
         bottom: $unitSpacingSize;
       }
     }
-
-    &[tab-style="card"] {
-      border-top: 1px solid $normalBorderColor;
-      & > .mu-tab-item {
-        border-bottom-width: 1px;
-      }
-      & > [active]:before {
-        bottom: -1px;
-      }
-      & > [active]:after {
-        top: -1px;
-      }
-    }
   }
   &[tab-position=left] {
-    border-right: 2px solid $normalBorderColor;
+    &::after {
+      right: 0;
+    }
 
-    & > *:not(.mu-tab-item) {
-      align-self: flex-end;
-      margin-right: $unitSpacingSize;
-    }
-    & > .mu-tab-item {
+    & .mu-tab-item {
       margin-right: 0;
-      padding-right: $unitSpacingSize;
+      border-right: 2px solid transparent;
     }
+
     & .mu-tab-label {
       text-align: right;
-    }
-    & > [active]:after {
-      right: -2px;
     }
 
     & ~ .mu-tab-panel {
@@ -212,38 +125,19 @@
         left: $unitSpacingSize;
       }
     }
-
-    &[tab-style="card"] {
-      border-right: 1px solid $normalBorderColor;
-      & > .mu-tab-item {
-        border-left-width: 1px;
-      }
-      & .mu-tab-label {
-        text-align: left;
-      }
-      & > [active]:before {
-        left: -1px;
-      }
-      & > [active]:after {
-        right: -1px;
-      }
-    }
   }
   &[tab-position=right] {
-    border-left: 2px solid $normalBorderColor;
+    &::after {
+      left: 0;
+    }
 
-    & > * {
-      margin-left: $unitSpacingSize;
-    }
-    & > *:not(.mu-tab-item) {
-      align-self: flex-start;
-    }
-    & > .mu-tab-item {
+    & .mu-tab-item {
       margin-left: 0;
-      padding-left: $unitSpacingSize;
+      border-left: 2px solid transparent;
     }
-    & > [active]:after {
-      left: -2px;
+
+    & .mu-tab-label {
+      text-align: left;
     }
 
     & ~ .mu-tab-panel {
@@ -254,53 +148,34 @@
         right: $unitSpacingSize;
       }
     }
-
-    &[tab-style="card"] {
-      border-left: 1px solid $normalBorderColor;
-      & > .mu-tab-item {
-        border-right-width: 1px;
-      }
-      & > [active]:before {
-        right: -1px;
-      }
-      & > [active]:after {
-        left: -1px;
-      }
-    }
-  }
-
-  & .mu-icon {
-    vertical-align: middle;
   }
 }
 
-.mu-tab-item {
+.mu-tabs-header .mu-tab-item {
   display: flex;
-  flex: 1 1 auto;
+  flex: 1 0 auto;
   align-items: center;
-  min-width: 40px;
+  justify-content: center;
+  padding: $unitSpacingSize;
   cursor: pointer;
-
-  & > .mu-tab-label {
-    display: inline-block;
-    width: 100%;
-    text-align: center;
-  }
 
   &:active {
     color: var(--mu-primary-color);
   }
 
   &[active] {
+    z-index: 1;
     color: var(--mu-primary-color);
-    &:after {
-      position: absolute;
-      content: '';
-      background-color: var(--mu-primary-color);
-    }
+    border-color: var(--mu-primary-color);
   }
 
   &[disabled] {
     color: $normalDisabledTextColor;
   }
+}
+
+.mu-tab-label {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
 }
