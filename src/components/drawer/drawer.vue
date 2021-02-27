@@ -26,13 +26,6 @@
   import { hasMaskParent } from '@/utils/dom'
   import { assignIfDefined } from '@/utils/assign-if-defined'
 
-  const DefaultMargins = {
-    top: 'left right x2',
-    bottom: 'left right x2',
-    left: 'top bottom right x4',
-    right: 'top bottom left x4'
-  }
-
   export default {
     name: 'MusselDrawer',
     extends: BaseModal,
@@ -72,11 +65,26 @@
           {
             width: this.width,
             height: this.height
-          }
+          },
+          (this.position === 'left' || this.position === 'right') && !this.width
+            ? {
+              left: 0,
+              right: 0
+            }
+            : {}
         )
       },
       margins () {
-        return this.margin || DefaultMargins[this.position]
+        return this.margin ||
+          (
+            (this.position === 'top' || this.position === 'bottom')
+              ? (this.width ? undefined : 'leftx2 rightx2')
+              : (
+                (this.width ? '' : (this.position === 'left' ? 'rightx4' : 'leftx4')) +
+                (this.height ? '' : ' topx4 bottomx4')
+              )
+          ) ||
+          undefined
       }
     },
     methods: {
