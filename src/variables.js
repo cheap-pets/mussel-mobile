@@ -5,6 +5,7 @@ export default {
   /* spacing */
   halfSpacingSize: '8px',
   unitSpacingSize: '16px',
+  doubleSpacingSize: '32px',
 
   /* primary colors */
   primaryColor: '#1890ff',

@@ -10,7 +10,7 @@
     <div
       v-else
       class="mu-drawer"
-      :margin="margin"
+      :margin="margins"
       :class="drawerClass"
       :style="drawerStyles">
       <slot />
@@ -25,6 +25,13 @@
 
   import { hasMaskParent } from '@/utils/dom'
   import { assignIfDefined } from '@/utils/assign-if-defined'
+
+  const DefaultMargins = {
+    top: 'left right x2',
+    bottom: 'left right x2',
+    left: 'top bottom right x4',
+    right: 'top bottom left x4'
+  }
 
   export default {
     name: 'MusselDrawer',
@@ -67,6 +74,9 @@
             height: this.height
           }
         )
+      },
+      margins () {
+        return this.margin || DefaultMargins[this.position]
       }
     },
     methods: {
