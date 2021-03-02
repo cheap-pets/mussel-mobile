@@ -18,8 +18,8 @@
 
 <body class="mu-background-grey">
   <div id="app" class="mu-absolute-fit">
-    <div class="mu-absolute-fit" style="padding-bottom: 100px; overflow: auto;">
-      <mu-form class="mu-card" border margin="x2" label-width="55px">
+    <div class="mu-absolute-fit" style="bottom: 48px; overflow: auto;">
+      <mu-form class="mu-card" border margin="topx2 horix2" label-width="55px">
         <mu-form-row>
           <mu-form-field label="Field1">
             <mu-editor></mu-editor>
@@ -49,7 +49,21 @@
           </template>
         </mu-form-dropdown-field>
       </mu-form>
+      <mu-flex-box content-spacing>
+        <div class="mu-card mu-square mu-background-normal" size="1" border>
+          <div>X</div>
+        </div>
+        <div class="mu-card mu-square mu-background-normal" size="1" border>
+          <div>Y</div>
+        </div>
+        <div class="mu-card mu-square mu-background-normal" size="1" border>
+          <div>Z</div>
+        </div>
+      </mu-flex-box>
       <mu-bar border="top bottom">
+        <label class="mu-text_section-title">Section Title</label>
+      </mu-bar>
+      <mu-bar border="top bottom" margin="topx2">
         <label>
           <mu-icon icon="menu"></mu-icon>
           Filter

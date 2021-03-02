@@ -54,6 +54,7 @@ export default {
   normalDarkBackground: '#002766',
   normalGreyBackground: '#e9e9e9',
   normalDarkGreyBackground: '#a6a6a6',
+  normalLightGreyBackground: '#f0f0f0',
   normalDisabledBackground: '#eee',
   normalInfoBackground: '#ffd',
   normalTinyBackground: 'rgba(0, 0, 0, .02)',

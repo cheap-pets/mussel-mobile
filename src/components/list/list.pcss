@@ -1,10 +1,18 @@
+.mu-list-group_title {
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
 .mu-list-group-header,
 .mu-list-item {
   position: relative;
+  display: flex;
+  padding: $halfSpacingSize;
   line-height: $normalLineHeight;
-  padding: $listItemPadding;
   overflow: hidden;
   color: $normalTextColor;
+  background: $normalBackground;
+  user-select: none;
 
   & > .mu-icon {
     display: inline-block;
@@ -18,8 +26,6 @@
 }
 
 .mu-list-item {
-  user-select: none;
-
   &[selected] {
     color: var(--mu-primary-color);
     font-weight: 600;

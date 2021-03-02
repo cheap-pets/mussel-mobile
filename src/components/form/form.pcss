@@ -1,15 +1,21 @@
+.mu-form-field > label,
+.mu-label {
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: 500;
+  color: $normalSubtitleTextColor;
+}
+
 .mu-form-field {
   min-width: 80px;
   min-height: $normalBarHeight;
   align-items: center;
   padding: $halfSpacingSize;
+  background: $normalBackground;
 
   & > label {
-    display: inline-block;
     padding-right: 12px;
     font-size: $formLabelFontSize;
-    font-weight: 500;
-    color: $normalSubtitleTextColor;
 
     &:before {
       position: absolute;
@@ -55,4 +61,8 @@
 .mu-form-row,
 .mu-form-field {
   width: 100%;
+}
+
+.mu-form > .mu-divider {
+  padding: 0 $halfSpacingSize;
 }
