@@ -7,16 +7,24 @@
 .mu-list-item {
   position: relative;
   display: flex;
-  padding: $halfSpacingSize;
-  line-height: $normalLineHeight;
+  align-items: center;
   overflow: hidden;
+  padding: $halfSpacingSize $unitSpacingSize;
+  line-height: $normalLineHeight;
   color: $normalTextColor;
-  background: $normalBackground;
   user-select: none;
 
   & > .mu-icon {
     display: inline-block;
-    width: $normalIconWidth;
+    width: $listIconWidth;
+    flex: none;
+  }
+
+  & > label {
+    flex: 1 1 auto;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
   }
 }
 
@@ -26,11 +34,6 @@
 }
 
 .mu-list-item {
-  &[selected] {
-    color: var(--mu-primary-color);
-    font-weight: 600;
-  }
-
   &:active {
     color: var(--mu-primary-color);
     background: $normalTinyBackground;
@@ -45,6 +48,7 @@
     background: none;
   }
 
+  &[selected],
   &[active] {
     color: $normalHighlightTextColor;
     background: var(--mu-primary-color);
@@ -53,11 +57,22 @@
 
 .mu-list-divider {
   display: block;
-  height: $listDividerHeight;
-  margin: $listDividerMargin;
-  border-bottom: 1px solid $normalDividerColor;
+  margin: $listDividerMargin 0;
+  /* padding: 0 $unitSpacingSize; */
 
   &:first-child, &:last-child {
     display: none;
+  }
+}
+
+.mu-list-item + .mu-divider,
+.mu-divider + .mu-list-item {
+  margin-top: $halfSpacingSize;
+}
+
+.mu-dropdown-panel_wrapper,
+.mu-drawer {
+  & > .mu-list-item {
+    border-radius: $unitSpacingSize;
   }
 }

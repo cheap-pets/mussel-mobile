@@ -78,7 +78,7 @@
         return this.margin ||
           (
             (this.position === 'top' || this.position === 'bottom')
-              ? (this.width ? undefined : 'leftx2 rightx2')
+              ? (this.width ? undefined : 'leftx4 rightx4')
               : (
                 (this.width ? '' : (this.position === 'left' ? 'rightx4' : 'leftx4')) +
                 (this.height ? '' : ' topx4 bottomx4')

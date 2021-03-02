@@ -15,6 +15,7 @@
   overflow: hidden;
 
   & > .mu-dropdown-panel_wrapper {
+    padding: $halfSpacingSize;
     border: 1px solid $normalBorderColor;
     background: $normalBackground;
     visibility: hidden;
@@ -63,10 +64,11 @@
 
   &[popup-style="dropdown"] > .mu-dropdown-panel_wrapper {
     box-shadow: $dropdownShadow;
+    border-radius: $unitSpacingSize;
 
-    & > .mu-list-item {
+    /* & > .mu-list-item {
       padding: $dropdownItemPadding;
-    }
+    } */
   }
 
   &[popup-style="drawer"],
@@ -83,12 +85,11 @@
   &[popup-style="drawer"] {
     & > .mu-dropdown-panel_wrapper {
       position: absolute;
-      left: $unitSpacingSize;
-      right: $unitSpacingSize;
+      left: $doubleSpacingSize;
+      right: $doubleSpacingSize;
       bottom: 0;
-      padding: $halfSpacingSize;
       border: 0;
-      border-radius: 8px 8px 0 0;
+      border-radius: $unitSpacingSize $unitSpacingSize 0 0;
       box-shadow: $drawerShadow;
     }
   }
@@ -101,10 +102,9 @@
     & > .mu-dropdown-panel_wrapper {
       position: relative;
       flex-grow: 1;
-      margin: 0 32px;
-      padding: $halfSpacingSize;
+      margin: 0 $doubleSpacingSize;
       border: 0;
-      border-radius: 8px;
+      border-radius: $unitSpacingSize;
       box-shadow: $dialogShadow;
     }
   }
@@ -114,6 +114,6 @@ body > .mu-dropdown-panel {
   position: fixed;
 }
 
-.mu-dropdown-list > .mu-dropdown-panel_wrapper {
+/* .mu-dropdown-list > .mu-dropdown-panel_wrapper {
   padding: $dropdownListPadding;
-}
+} */

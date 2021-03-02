@@ -62,8 +62,7 @@ export default {
   /* element size */
   normalBarHeight: '48px',
   compactBarHeight: '36px',
-  normalLineHeight: '20px',
-  normalIconWidth: '20px',
+  normalLineHeight: '16px',
 
   /* shadow */
   boxShadowLevel1: '0 0 3px 1px rgba(0, 0, 0, .15)',
@@ -99,8 +98,8 @@ export default {
 
   /* dropdown */
   dropdownBorderRadius: 0,
-  dropdownListPadding: '4px 0',
-  dropdownItemPadding: '5px 16px',
+  // dropdownListPadding: '4px 0',
+  // dropdownItemPadding: '5px 16px',
   dropdownShadow: '$boxShadowLevel1',
 
   /* expander */
@@ -111,7 +110,7 @@ export default {
 
   /* card */
   cardBorder: '0',
-  cardBorderRadius: '8px',
+  cardBorderRadius: '16px',
   cardShadow: 'none',
 
   /* mask */
@@ -135,8 +134,9 @@ export default {
 
   /* list */
   listItemPadding: '10px 16px',
-  listDividerMargin: '4px 0',
+  listDividerMargin: '8px',
   listDividerHeight: '1px',
+  listIconWidth: '24px',
 
   /* tab */
   tabCardBackground: '$normalGreyBackground',

@@ -11,7 +11,7 @@
       :icon="actualIcon"
       :icon-class="actualIconClass"
       @tap="onIconTap" />
-    <slot>{{ actualLabel }}</slot>
+    <slot><label>{{ actualLabel }}</label></slot>
   </div>
 </template>
 

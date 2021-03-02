@@ -8,11 +8,6 @@
   display: block;
   overflow: visible;
 
-  & > div {
-    position: absolute;
-    transition: all .2s ease-in-out;
-  }
-
   &[position="left"] {
     right: auto;
 
@@ -21,7 +16,7 @@
       left: 0;
       bottom: 0;
       /* padding: 8px 0; */
-      border-radius: 0 8px 8px 0;
+      border-radius: 0 $unitSpacingSize $unitSpacingSize 0;
       transform: translateX(-100%);
     }
   }
@@ -34,7 +29,7 @@
       bottom: 0;
       right: 0;
       /* padding: 8px 0; */
-      border-radius: 8px 0 0 8px;
+      border-radius: $unitSpacingSize 0 0 $unitSpacingSize;
       transform: translateX(100%);
     }
   }
@@ -47,7 +42,7 @@
       left: 0;
       right: 0;
       /* padding-bottom: 8px; */
-      border-radius: 0 0 8px 8px;
+      border-radius: 0 0 $unitSpacingSize $unitSpacingSize;
       transform: translateY(-100%);
     }
   }
@@ -60,7 +55,7 @@
       left: 0;
       right: 0;
       /* padding-top: 8px; */
-      border-radius: 8px 8px 0 0;
+      border-radius: $unitSpacingSize $unitSpacingSize 0 0;
       transform: translateY(100%);
     }
   }
@@ -82,7 +77,10 @@ body > .mu-drawer-wrapper {
 }
 
 .mu-drawer {
+  position: absolute;
   margin: auto;
+  padding: $halfSpacingSize;
   background: $normalBackground;
   box-shadow: $drawerShadow;
+  transition: all .2s ease-in-out;
 }

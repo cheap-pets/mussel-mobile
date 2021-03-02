@@ -43,7 +43,7 @@
         <mu-form-dropdown-field label="Field3" value="Dropdown Field">
           <template #dropdown>
             <mu-dropdown-item>one</mu-dropdown-item>
-            <mu-dropdown-item>two</mu-dropdown-item>
+            <mu-dropdown-item active>two</mu-dropdown-item>
             <mu-list-divider></mu-list-divider>
             <mu-dropdown-item>three</mu-dropdown-item>
           </template>
@@ -78,7 +78,7 @@
             <mu-dropdown-item>one</mu-dropdown-item>
             <mu-dropdown-item>two</mu-dropdown-item>
             <mu-list-divider></mu-list-divider>
-            <mu-dropdown-item>three</mu-dropdown-item>
+            <mu-dropdown-item active>three</mu-dropdown-item>
           </template>
         </mu-dropdown-button>
       </mu-bar>
@@ -111,13 +111,13 @@
       <mu-drawer
         v-model="drawVisible"
         :position="drawPosition">
-          <mu-list-item icon="folder">Item One</mu-list-item>
-          <div class="mu-divider" dashed></div>
-          <mu-list-item icon="folder">Item Two</mu-list-item>
-          <div class="mu-divider" dashed></div>
-          <mu-list-item icon="folder">Item Three</mu-list-item>
-          <div class="mu-divider" dashed></div>
-          <mu-list-item icon="folder">Item Four</mu-list-item>
+          <mu-list-item icon="folder" label="Item One"></mu-list-item>
+          <div class="mu-list-divider" dashed></div>
+          <mu-list-item icon="folder" label="Item Two"></mu-list-item>
+          <div class="mu-list-divider" dashed></div>
+          <mu-list-item icon="folder" label="Item Three"></mu-list-item>
+          <div class="mu-list-divider" dashed></div>
+          <mu-list-item icon="folder" label="Item Four"></mu-list-item>
       </mu-drawer>
       <mu-expander margin="topx2" expanded border="top bottom" title="click to expand">
         <div class="mu-divider" dashed></div>
