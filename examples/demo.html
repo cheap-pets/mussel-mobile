@@ -19,7 +19,7 @@
 <body class="mu-background-grey">
   <div id="app" class="mu-absolute-fit">
     <div class="mu-absolute-fit" style="bottom: 48px; overflow: auto;">
-      <mu-form class="mu-card" border margin="topx2 horix2" label-width="55px">
+      <mu-form class="mu-card" shadow margin="topx2 horix2" label-width="55px">
         <mu-form-row>
           <mu-form-field label="Field1">
             <mu-editor></mu-editor>
@@ -50,13 +50,13 @@
         </mu-form-dropdown-field>
       </mu-form>
       <mu-flex-box content-spacing>
-        <div class="mu-card mu-square mu-background-normal" size="1" border>
+        <div class="mu-card mu-square" size="1" border>
           <div>X</div>
         </div>
-        <div class="mu-card mu-square mu-background-normal" size="1" border>
+        <div class="mu-card mu-square" size="1" border>
           <div>Y</div>
         </div>
-        <div class="mu-card mu-square mu-background-normal" size="1" border>
+        <div class="mu-card mu-square" size="1" border>
           <div>Z</div>
         </div>
       </mu-flex-box>
@@ -111,9 +111,10 @@
       <mu-drawer
         v-model="drawVisible"
         :position="drawPosition">
+          <div class="mu-list-header">Head Title</div>
           <mu-list-item icon="folder" label="Item One"></mu-list-item>
           <div class="mu-list-divider" dashed></div>
-          <mu-list-item icon="folder" label="Item Two"></mu-list-item>
+          <mu-list-item icon="folder" label="Item Two" active></mu-list-item>
           <div class="mu-list-divider" dashed></div>
           <mu-list-item icon="folder" label="Item Three"></mu-list-item>
           <div class="mu-list-divider" dashed></div>

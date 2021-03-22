@@ -1,9 +1,5 @@
-.mu-list-group_title {
-  font-size: 1.15rem;
-  font-weight: 600;
-}
-
 .mu-list-group-header,
+.mu-list-header,
 .mu-list-item {
   position: relative;
   display: flex;
@@ -14,9 +10,9 @@
   color: $normalTextColor;
   user-select: none;
 
-  & > .mu-icon {
-    display: inline-block;
+  & > .mu-icon:first-child {
     width: $listIconWidth;
+    margin-right: 8px;
     flex: none;
   }
 
@@ -26,6 +22,13 @@
     white-space: nowrap;
     text-overflow: ellipsis;
   }
+}
+
+.mu-list-header {
+  margin-bottom: $halfSpacingSize;
+  justify-content: center;
+  font-size: 1.15rem;
+  font-weight: 600;
 }
 
 .mu-list-group-header {
@@ -65,13 +68,12 @@
   }
 }
 
-.mu-list-item + .mu-divider,
-.mu-divider + .mu-list-item {
-  margin-top: $halfSpacingSize;
-}
-
 .mu-dropdown-panel_wrapper,
 .mu-drawer {
+  & > .mu-list-header {
+    border-radius: $unitSpacingSize;
+    background: $normalGreyBackground;
+  }
   & > .mu-list-item {
     border-radius: $unitSpacingSize;
   }

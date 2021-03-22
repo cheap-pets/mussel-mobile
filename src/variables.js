@@ -38,10 +38,10 @@ export default {
   /* normal control vars */
 
   /* text color */
-  normalTextColor: '#555',
+  normalTextColor: '#333',
   normalWeakTextColor: '#bbb',
-  normalTitleTextColor: '#444',
-  normalSubtitleTextColor: '#999',
+  normalTitleTextColor: '#333',
+  normalSubtitleTextColor: '#888',
   normalDisabledTextColor: '#bbb',
   normalHighlightTextColor: '#fff',
 
@@ -136,7 +136,7 @@ export default {
   listItemPadding: '10px 16px',
   listDividerMargin: '8px',
   listDividerHeight: '1px',
-  listIconWidth: '24px',
+  listIconWidth: '20px',
 
   /* tab */
   tabCardBackground: '$normalGreyBackground',
